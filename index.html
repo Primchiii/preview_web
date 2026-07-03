@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER 50+ | Keep Body Fit & Strong</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-card-hover: #2a2a2a;
+            --text-white: #ffffff;
+            --text-gray: #e6e6e6;
+            --accent-red: #e50914; 
+            --font-th: 'Noto Sans Thai', sans-serif;
+            --font-en: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-th);
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .en-text { font-family: var(--font-en); }
+        h1, h2, h3 { text-transform: uppercase; }
+
+        /* --- Navbar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5vw;
+            background-color: rgba(18, 18, 18, 0.98);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span { color: var(--accent-red); }
+
+        .nav-links { display: flex; gap: 30px; }
+        
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+
+        .nav-links a:hover { color: var(--accent-red); }
+
+        /* ปุ่ม Hamburger สำหรับมือถือ */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: var(--text-white);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            padding: 0 5vw;
+            margin-top: 50px; /* ชดเชย Navbar */
+        }
+
+        .slider-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            object-fit: cover;
+            object-position: center top;
+            filter: brightness(0.3);
+        }
+
+        .slide.active { opacity: 1; }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hero-subtitle::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-red);
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
+
+        .btn-red {
+            background-color: var(--accent-red);
+            color: var(--text-white);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-red:hover { background-color: #b80710; }
+
+        .btn-outline {
+            border: 2px solid var(--text-white);
+            color: var(--text-white);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-outline:hover { 
+            background-color: var(--text-white); 
+            color: var(--bg-dark); 
+        }
+
+        /* --- Sections พื้นฐาน --- */
+        .section-padding { padding: 100px 5vw; }
+        .bg-dark { background-color: var(--bg-dark); }
+        .bg-darker { background-color: #181818; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-subtitle {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .section-title { font-size: 3rem; font-weight: 700; }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: transform 0.3s, background 0.3s;
+            text-align: left;
+            border: 1px solid #333;
+        }
+
+        .service-card:hover { transform: translateY(-5px); background-color: var(--bg-card-hover); }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(229, 9, 20, 0.1);
+            color: var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 25px; }
+        
+        .read-more {
+            color: var(--text-white);
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .read-more:hover { background-color: var(--accent-red); }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: -20px 20px 0px rgba(229, 9, 20, 0.2);
+        }
+
+        .about-content h2 { font-size: 2.8rem; margin: 15px 0 25px; line-height: 1.3; }
+        .about-content p { color: var(--text-gray); margin-bottom: 25px; font-size: 1.15rem; }
+
+        .check-list { margin-bottom: 40px; }
+        .check-list p {
+            color: var(--text-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+        
+        .check-list p::before {
+            content: "✓";
+            color: var(--text-white);
+            background-color: var(--accent-red);
+            width: 25px;
+            height: 25px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        /* --- Video Section --- */
+        .video-container {
+            max-width: 900px;
+            margin: 40px auto 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #333;
+        }
+
+        video { width: 100%; display: block; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0c0c0c;
+            padding: 60px 5vw 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .social-icons { margin-bottom: 30px; }
+        .social-icons a {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+        .social-icons a:hover { color: var(--accent-red); }
+
+        .visitor-counter {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .visitor-number {
+            color: var(--text-white);
+            background-color: var(--accent-red);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: var(--font-en);
+            font-size: 1.2rem;
+            margin: 0 8px;
+        }
+
+        /* =========================================
+           📱 MOBILE RESPONSIVE (สำหรับจอมือถือ) 
+           ========================================= */
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar สำหรับมือถือ */
+            nav { padding: 15px 5vw; }
+            .logo { font-size: 1.8rem; }
+            .menu-toggle { display: block; } /* แสดงปุ่มแฮมเบอร์เกอร์ */
+            
+            .nav-links { 
+                display: none; /* ซ่อนเมนูไว้ก่อน */
+                flex-direction: column; 
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #121212;
+                padding: 10px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+                border-top: 1px solid #333;
+            }
+            
+            .nav-links.active { display: flex; } /* แสดงเมื่อกดปุ่ม */
+            
+            .nav-links a { 
+                padding: 15px 5vw; 
+                border-bottom: 1px solid #222; 
+                font-size: 1.2rem; 
+                display: block; 
+            }
+
+            /* ปรับระยะห่างและขนาดตัวอักษรให้พอดีมือถือ */
+            .hero-section { min-height: 80vh; margin-top: 0; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1.15rem; }
+            .hero-subtitle { font-size: 1rem; }
+            
+            /* ขยายปุ่มให้เต็มจอบนมือถือเพื่อกดง่าย */
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn-red, .btn-outline { width: 100%; padding: 15px; }
+
+            .section-padding { padding: 60px 5vw; } /* ลดระยะห่างบน-ล่าง */
+            .section-title { font-size: 2.2rem; }
+            .about-content h2 { font-size: 2.2rem; }
+            
+            /* ลดขนาดรูปภาพเงาเพื่อให้ไม่ล้นจอ */
+            .about-image img { box-shadow: -10px 10px 0px rgba(229, 9, 20, 0.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MASTER <span>50+</span></div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="toggleMenu()">หน้าหลัก</a>
+            <a href="#services" onclick="toggleMenu()">โปรแกรมของเรา</a>
+            <a href="#about" onclick="toggleMenu()">เกี่ยวกับเรา</a>
+            <a href="#video" onclick="toggleMenu()">วิดีโอ</a>
+            <a href="#contact" onclick="toggleMenu()">ติดต่อเรา</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="slider-bg">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80" class="slide active" alt="Fitness 1">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80" class="slide" alt="Fitness 2">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1920&q=80" class="slide" alt="Fitness 3">
+            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=1920&q=80" class="slide" alt="Fitness 4">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80" class="slide" alt="Fitness 5">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-subtitle">READY TO CHANGE YOUR PHYSIQUE</div>
+            <h1>KEEP BODY<br>FIT & STRONG</h1>
+            <p>ก้าวข้ามขีดจำกัด ปลุกความแข็งแกร่งในตัวคุณ ไม่ว่าอายุเท่าไหร่ก็ฟิตได้! เตรียมพร้อมร่างกายด้วยโปรแกรมที่ออกแบบมาเพื่อวัย 50 ปีขึ้นไปโดยเฉพาะ</p>
+            <div class="btn-group">
+                <a href="#about" class="btn-red">เข้าร่วมกับเรา</a>
+                <a href="#services" class="btn-outline">ดูโปรแกรมการฝึก</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section-padding bg-dark">
+        <div class="section-header">
+            <div class="section-subtitle">Our Services</div>
+            <h2 class="section-title">โปรแกรมสำหรับคุณ</h2>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box">🏋️</div>
+                <h3>Strength Training</h3>
+                <p>โปรแกรมสร้างกล้ามเนื้อที่ปลอดภัยและเหมาะสมกับวัย 50+ เน้นการเคลื่อนไหวเพื่อเสริมสร้างความแข็งแกร่ง ป้องกันการหกล้ม</p>
+                <a href="#" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box">🚣</div>
+                <h3>Cardio & Rowing</h3>
+                <p>ฝึกระบบหัวใจและหลอดเลือดด้วยเครื่อง Rowing Machine ไร้แรงกระแทก ถนอมข้อเข่าและข้อเท้า แต่ช่วยเผาผลาญได้อย่างยอดเยี่ยม</p>
+                <a href="#" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box">🚶</div>
+                <h3>Balance & Carry</h3>
+                <p>การฝึกทรงตัวและยกน้ำหนักเดินระยะสั้น ช่วยเสริมความแข็งแรงของมือ แขน และปรับสมดุลบุคลิกภาพในชีวิตประจำวัน</p>
+                <a href="#" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box">🎯</div>
+                <h3>Mobility Routine</h3>
+                <p>โปรแกรมยืดเหยียดและฝึกความคล่องตัว เพื่อลดอาการปวดเมื่อย เพิ่มมุมการเคลื่อนไหวของข้อต่อต่างๆ อย่างเป็นธรรมชาติ</p>
+                <a href="#" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-darker">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=800&q=80" alt="Master 50+ Training">
+            </div>
+            <div class="about-content">
+                <div class="section-subtitle">About Us</div>
+                <h2>แข็งแรงได้ทุกวัย<br>เริ่มต้นดูแลตัวเองตั้งแต่วันนี้</h2>
+                <p>เราสร้างสรรค์โปรแกรมการออกกำลังกายที่ปรับระดับความเข้มข้นให้ตอบโจทย์สรีระและความปลอดภัยของวัย 50 ปีขึ้นไปโดยเฉพาะ</p>
+                
+                <div class="check-list">
+                    <p>ทีมแพทย์และนักกายภาพบำบัดดูแลอย่างใกล้ชิด</p>
+                    <p>เทรนเนอร์ผู้เชี่ยวชาญด้านผู้สูงวัยโดยเฉพาะ</p>
+                    <p>เครื่องมือระดับมาตรฐานสากล เน้นความปลอดภัย</p>
+                </div>
+                
+                <a href="#contact" class="btn-red">ติดต่อสอบถามข้อมูลเพิ่มเติม</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="section-padding bg-dark">
+        <div class="section-header">
+            <div class="section-subtitle">Gym & Fitness Training</div>
+            <h2 class="section-title">วิดีโอตัวอย่างการฝึกซ้อม</h2>
+            <p style="color: var(--text-gray); margin-top: 15px; font-size: 1.1rem;">รับชมวิดีโอตัวอย่างโปรแกรมการฝึกซ้อมความยาว 1 นาที ที่ทำตามได้ง่ายๆ</p>
+        </div>
+        
+        <div class="video-container">
+            <video controls poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1920&q=80">
+                <source src="your-video-file.mp4" type="video/mp4">
+                เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ HTML5
+            </video>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="logo" style="justify-content: center; margin-bottom: 20px;">MASTER <span>50+</span></div>
+        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem;">
+            123 อาคารสปอร์ตคอมเพล็กซ์ ชั้น 5 ถนนสุขุมวิท เขตคลองเตย กทม. 10110<br>
+            โทรศัพท์: 02-XXX-XXXX | อีเมล: contact@master50.com
+        </p>
+        
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Line OA</a>
+        </div>
+
+        <div class="visitor-counter">
+            จำนวนผู้เข้าชมเว็บไซต์ <span class="visitor-number" id="viewCount">0</span> คน
+            <div style="margin-top: 15px; font-size: 0.9rem; color: #888;">
+                &copy; 2026 MASTER 50+ FITNESS. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ระบบเปิด-ปิด เมนูบนมือถือ (Hamburger Menu)
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            // เช็คว่าถ้าเป็นจอมือถือถึงจะให้มีการเปิด/ปิดคลาส
+            if(window.innerWidth <= 768) {
+                navLinks.classList.toggle('active');
+            }
+        }
+
+        // ระบบ Slider พื้นหลัง
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 5000);
+
+        // ระบบจำลองนับผู้เข้าชม
+        function updateCounter() {
+            const counterElement = document.getElementById('viewCount');
+            let count = localStorage.getItem('master50_fit_views') || 142850;
+            count = parseInt(count) + 1;
+            localStorage.setItem('master50_fit_views', count);
+            counterElement.innerText = count.toLocaleString('en-US');
+        }
+        updateCounter();
+    </script>
+</body>
+</html>
