@@ -30,10 +30,54 @@
             line-height: 1.8;
             font-size: 18px;
             overflow-x: hidden;
+            position: relative;
         }
 
         h1, h2, h3, h4, .en-text { font-family: var(--font-en); }
         h1, h2, h3 { text-transform: uppercase; }
+
+        /* --- CSS ลายน้ำ (Watermark Protection) --- */
+        .watermark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* ทำให้คลิกทะลุลายน้ำไปโดนปุ่มข้างหลังได้ */
+            z-index: 99999; /* อยู่บนสุดเสมอ */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 20px;
+            padding: 5vh 5vw;
+            opacity: 0.08; /* ความโปร่งแสง (ปรับเพิ่ม/ลดได้ตามต้องการ) */
+            user-select: none; /* ห้ามคลุมดำไฮไลท์ข้อความลายน้ำ */
+        }
+
+        .watermark-item {
+            font-family: var(--font-en);
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-25deg);
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+
+        /* ซ่อนลายน้ำบางส่วนบนมือถือเพื่อความสะอาดตาแต่ยังกันแคปได้ */
+        @media (max-width: 768px) {
+            .watermark-overlay {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                opacity: 0.06;
+            }
+            .watermark-item {
+                font-size: 1.8rem;
+            }
+        }
 
         /* --- Navbar --- */
         nav {
@@ -74,7 +118,6 @@
 
         .nav-links a:hover { color: var(--accent-red); }
 
-        /* ปุ่ม Hamburger สำหรับมือถือ */
         .menu-toggle {
             display: none;
             font-size: 2rem;
@@ -92,7 +135,7 @@
             display: flex;
             align-items: center;
             padding: 0 5vw;
-            margin-top: 50px; /* ชดเชย Navbar */
+            margin-top: 50px;
         }
 
         .slider-bg {
@@ -344,22 +387,19 @@
             margin: 0 8px;
         }
 
-        /* =========================================
-           📱 MOBILE RESPONSIVE (สำหรับจอมือถือ) 
-           ========================================= */
+        /* --- Mobile Responsive --- */
         @media (max-width: 992px) {
             .about-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 3.5rem; }
         }
 
         @media (max-width: 768px) {
-            /* Navbar สำหรับมือถือ */
             nav { padding: 15px 5vw; }
             .logo { font-size: 1.8rem; }
-            .menu-toggle { display: block; } /* แสดงปุ่มแฮมเบอร์เกอร์ */
+            .menu-toggle { display: block; }
             
             .nav-links { 
-                display: none; /* ซ่อนเมนูไว้ก่อน */
+                display: none; 
                 flex-direction: column; 
                 width: 100%;
                 position: absolute;
@@ -371,7 +411,7 @@
                 border-top: 1px solid #333;
             }
             
-            .nav-links.active { display: flex; } /* แสดงเมื่อกดปุ่ม */
+            .nav-links.active { display: flex; }
             
             .nav-links a { 
                 padding: 15px 5vw; 
@@ -380,26 +420,39 @@
                 display: block; 
             }
 
-            /* ปรับระยะห่างและขนาดตัวอักษรให้พอดีมือถือ */
             .hero-section { min-height: 80vh; margin-top: 0; }
             .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 1.15rem; }
             .hero-subtitle { font-size: 1rem; }
             
-            /* ขยายปุ่มให้เต็มจอบนมือถือเพื่อกดง่าย */
             .btn-group { flex-direction: column; width: 100%; }
             .btn-red, .btn-outline { width: 100%; padding: 15px; }
 
-            .section-padding { padding: 60px 5vw; } /* ลดระยะห่างบน-ล่าง */
+            .section-padding { padding: 60px 5vw; }
             .section-title { font-size: 2.2rem; }
             .about-content h2 { font-size: 2.2rem; }
             
-            /* ลดขนาดรูปภาพเงาเพื่อให้ไม่ล้นจอ */
             .about-image img { box-shadow: -10px 10px 0px rgba(229, 9, 20, 0.2); }
         }
     </style>
 </head>
 <body>
+
+    <!-- เลเยอร์ลายน้ำป้องกันการก็อปปี้ -->
+    <div class="watermark-overlay">
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+        <div class="watermark-item">code-Nermit</div>
+    </div>
 
     <nav>
         <div class="logo">MASTER <span>50+</span></div>
@@ -526,16 +579,13 @@
     </footer>
 
     <script>
-        // ระบบเปิด-ปิด เมนูบนมือถือ (Hamburger Menu)
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
-            // เช็คว่าถ้าเป็นจอมือถือถึงจะให้มีการเปิด/ปิดคลาส
             if(window.innerWidth <= 768) {
                 navLinks.classList.toggle('active');
             }
         }
 
-        // ระบบ Slider พื้นหลัง
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
 
@@ -546,7 +596,6 @@
         }
         setInterval(nextSlide, 5000);
 
-        // ระบบจำลองนับผู้เข้าชม
         function updateCounter() {
             const counterElement = document.getElementById('viewCount');
             let count = localStorage.getItem('master50_fit_views') || 142850;
