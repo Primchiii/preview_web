@@ -7,8 +7,16 @@
 <meta name="description" content="LEGACY Race 2026 การแข่งขัน Functional Fitness สำหรับผู้มีอายุ 50–69 ปี วันเสาร์ที่ 31 ตุลาคม 2569 IMPACT Exhibition Hall 5 เมืองทองธานี">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* ตั้งค่า Font Sukhumvit Set Bold จากไฟล์ .ttc */
+  @font-face {
+    font-family: 'SukhumvitSet-Bold';
+    src: local('Sukhumvit Set Bold'), url('SukhumvitSet.ttc#Sukhumvit Set Bold') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   :root {
     --ink: #000000;          
     --ink2: #050505;         
@@ -22,8 +30,10 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth; scroll-padding-top: 110px;}
+  
   body{
-    font-family:'Noto Sans Thai', 'Oswald', system-ui, sans-serif;
+    /* ใช้ SukhumvitSet-Bold เป็นฟอนต์หลักสำหรับภาษาไทย */
+    font-family: 'SukhumvitSet-Bold', 'Oswald', system-ui, sans-serif;
     background:var(--ink);
     color:var(--paper);
     line-height:1.6;
@@ -31,11 +41,10 @@
     overflow-x: hidden;
   }
   h1,h2,h3,.display{
-    font-family:'Oswald', 'Noto Sans Thai', sans-serif;
-    font-weight:600;
+    font-family:'Oswald', 'SukhumvitSet-Bold', sans-serif;
     line-height:1.2;
   }
-  .thai-h{font-family:'Oswald', 'Noto Sans Thai', sans-serif;font-weight:700}
+  .thai-h{font-family:'Oswald', 'SukhumvitSet-Bold', sans-serif;}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   
@@ -44,7 +53,7 @@
   /* Ultra-modern Pill Buttons */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;
-    font-family:'Oswald', 'Noto Sans Thai', sans-serif;font-weight:600;font-size:1.05rem;
+    font-family:'Oswald', 'SukhumvitSet-Bold', sans-serif;font-size:1.05rem;
     padding:14px 36px;border-radius:100px;border:1px solid transparent;
     transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1);cursor:pointer;
     letter-spacing: 0.5px;
@@ -89,7 +98,7 @@
   
   .navlinks{display:flex;gap:40px;align-items:center}
   .navlinks a{
-    font-weight:400;font-size:1rem;color:#cccccc;
+    font-size:1rem;color:#cccccc;
     position:relative;padding:8px 0;transition:0.3s; 
     letter-spacing: 0.5px;
   }
@@ -134,17 +143,17 @@
   .slider-btn.next { right:32px; }
 
   .hero-inner{position:relative; z-index:3; padding:80px 0 40px;}
-  .presents{color:var(--muted);letter-spacing:0.3em;font-size:0.85rem;font-weight:600;margin-bottom:20px; text-transform:uppercase;}
+  .presents{color:var(--muted);letter-spacing:0.3em;font-size:0.85rem;font-family:'Oswald', sans-serif;font-weight:600;margin-bottom:20px; text-transform:uppercase;}
   .presents b{color:#fff}
-  .hero h1{font-size:clamp(3.5rem,9vw,8.5rem);color:#fff;margin:0; letter-spacing: -2px; line-height: 1; font-weight:700;}
-  .hero h1 .yr{color:rgba(255,255,255,0.3); font-weight: 300;}
-  .hero .kick{font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,3.5vw,2.5rem);color:#fff;margin:16px 0 24px;letter-spacing:2px; font-weight:400;}
-  .hero .lede{font-size:1.15rem;max-width:600px;color:#bbbbbb;font-weight:300; line-height: 1.8;}
-  .hero .lede b{color:#fff; font-weight: 500;}
+  .hero h1{font-size:clamp(3.5rem,9vw,8.5rem);color:#fff;margin:0; letter-spacing: -2px; line-height: 1;}
+  .hero h1 .yr{color:rgba(255,255,255,0.3);}
+  .hero .kick{font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,3.5vw,2.5rem);color:#fff;margin:16px 0 24px;letter-spacing:2px;}
+  .hero .lede{font-size:1.15rem;max-width:600px;color:#bbbbbb; line-height: 1.8;}
+  .hero .lede b{color:#fff;}
   
   .facts{display:flex;flex-direction:row;flex-wrap:wrap;gap:12px;margin:40px 0;list-style:none;padding:0;align-items:center;}
-  .fact{display:flex;align-items:center;font-size:1rem;color:#aaaaaa; font-weight: 300;}
-  .fact strong{color:#fff;font-weight:500;margin-right:8px;}
+  .fact{display:flex;align-items:center;font-size:1rem;color:#aaaaaa;}
+  .fact strong{color:#fff;margin-right:8px;}
   .fact:not(:last-child)::after{content:"|";color:var(--glass-border);margin-left:12px;}
   
   .hero-cta{display:flex;flex-wrap:wrap;gap:16px}
@@ -154,67 +163,70 @@
   /* ABOUT */
   .about{background:var(--ink); position:relative;}
   .about h2{font-size:clamp(2.5rem,5vw,4rem);color:#fff;max-width:16ch;margin-bottom:32px; letter-spacing: -1px;}
-  .about h2 em{font-style:normal;color:var(--muted); font-weight: 300;}
+  .about h2 em{font-style:normal;color:var(--muted);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-  .about p{color:#999999;font-size:1.1rem;margin-bottom:24px; font-weight: 300; line-height: 1.8;}
-  .about .warrior{margin-top:40px;font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:1px;color:#fff;line-height:1.2; font-weight:500; text-transform:uppercase;}
+  .about p{color:#999999;font-size:1.1rem;margin-bottom:24px; line-height: 1.8;}
+  .about .warrior{margin-top:40px;font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:1px;color:#fff;line-height:1.2; text-transform:uppercase;}
   
-  /* แก้ไข: เปลี่ยนเป็นแนวตั้ง (1 Column) และปรับสไตล์กล่องตามภาพ */
+  /* แก้ไข: ปรับ About List ให้ไม่มีกรอบและเรียงเป็นลิสต์ */
   .pillars {
-    display: grid;
-    grid-template-columns: 1fr; /* เรียงเป็นแนวตั้ง */
-    gap: 16px; /* ระยะห่างระหว่างกล่อง */
+    display: flex;
+    flex-direction: column;
+    gap: 32px; 
   }
   .pillar {
-    background: #0d0d0d; /* สีพื้นหลังเข้มแบบในรูป */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* ขอบบางๆ */
-    border-radius: 18px; /* มุมโค้งมน */
-    padding: 32px;
-    transition: all 0.4s ease;
-  }
-  .pillar:hover {
-    background: #141414;
-    border-color: rgba(255, 255, 255, 0.2); 
-    transform: translateY(-4px);
+    background: transparent; 
+    border: none;
+    padding: 0;
   }
   .pillar .thai-h {
     font-size: 1.25rem;
     color: #ffffff;
-    margin-bottom: 12px; 
-    font-weight: 600;
+    margin-bottom: 8px; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pillar .thai-h::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
   }
   .pillar p {
-    margin: 0;
-    font-size: 1rem;
+    margin: 0 0 0 18px; /* เว้นระยะให้ตรงกับข้อความ (ไม่ทับ bullet) */
+    font-size: 1.05rem;
     color: #888888;
-    font-weight: 300;
     line-height: 1.6;
   }
 
-  /* FORMAT (Single Full Image Card) */
+  /* FORMAT */
   .format{background: var(--ink2);}
   .format .head{text-align:center;margin-bottom:60px; display:flex; flex-direction:column; align-items:center;}
   .format h2{font-size:clamp(2.8rem,6vw,4.5rem);color:#fff; letter-spacing: -1.5px;}
-  .format .head p{color:#999;margin-top:16px;font-size:1.15rem; font-weight: 300; max-width:600px;}
+  .format .head p{color:#999;margin-top:16px;font-size:1.15rem; max-width:600px;}
   
-  .station-container {
-    max-width: 900px; 
+  .station-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: var(--max);
     margin: 0 auto;
-    position: relative;
-    padding: 0;
   }
   
   .station-card {
     background: var(--ink); 
     border: 1px solid var(--glass-border);
-    border-radius: 32px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
   .st-pic {
-    height: 650px;
+    height: 380px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -231,31 +243,32 @@
   
   .st-pic::after {
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.95) 100%);
+    background:linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.95) 100%);
     pointer-events: none;
     z-index: 1;
   }
 
   .st-num {
     font-family: 'Oswald', sans-serif;
-    font-size: 7rem; font-weight: 700;
+    font-size: 4rem; font-weight: 700;
     color: transparent;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.2); 
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.15); 
     position: absolute;
-    top: 20px;
-    left: 40px;
+    top: 15px;
+    left: 20px;
     z-index: 3;
     line-height: 1;
   }
 
   .st-body {
-    padding: 40px;
+    padding: 24px;
     background: transparent; 
     position: relative;
     z-index: 3;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
   }
 
   .st-body-content {
@@ -264,31 +277,37 @@
   }
 
   .st-body h3 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin: 0;
+    font-size: 1rem;
+    margin: 0 0 8px 0;
     color: #ffffff; 
+    text-transform: uppercase;
     text-shadow: 0 4px 12px rgba(0,0,0,0.5);
   }
   
-  .st-body p {
-    color: #cccccc; 
-    margin-top: 8px;
-    font-weight: 400;
-    font-size: 1.1rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  .station-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .st-body .metric {
-    background: #ffffff; 
-    color: #000000;
-    padding: 12px 28px;
-    border-radius: 100px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  .station-details p {
+    color: #cccccc; 
+    margin: 0;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 4px;
+  }
+  
+  .station-details p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .station-details strong {
+    color: #fff;
+    font-weight: normal;
   }
 
   /* WHO Section */
@@ -310,51 +329,42 @@
     margin: 0 auto;
     font-size: 1.15rem;
     color: #aaa;
-    font-weight: 300;
   }
 
+  /* แก้ไข: ปรับ Chips ให้ไม่มีพื้นหลังสีขาว และเรียงเป็นแนวตั้งตรงกลาง */
   .who .chips {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* เปลี่ยนจากแนวนอน (flex-wrap) เป็นแนวตั้ง */
     gap: 20px; 
-    justify-content: center;
+    align-items: center; /* จัดให้อยู่ตรงกลางของ section */
     margin-top: 50px;
-    max-width: 900px; 
+    max-width: 600px; 
     margin-left: auto;
     margin-right: auto;
   }
   
   .who .chip {
-    background: #ffffff; 
+    background: transparent; /* นำพื้นหลังขาวออก */
     border: none; 
-    padding: 14px 28px; 
-    border-radius: 100px; 
-    font-weight: 500; 
-    font-size: 1.05rem;
-    color: #000000; 
+    padding: 0; 
+    border-radius: 0; 
+    font-size: 1.25rem; /* ปรับขนาดให้ใหญ่ขึ้นเล็กน้อย */
+    color: #ffffff; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
     display: flex;
     align-items: center;
-    gap: 14px; 
-    transition: all 0.4s ease; 
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05); 
-  }
-  
-  .who .chip:hover {
-    transform: translateY(-4px); 
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15); 
+    gap: 16px; 
+    box-shadow: none; /* นำเงาออก */
   }
 
   .who .chip .tick {
-    color: #ffffff; 
+    color: #000000; /* สีเครื่องหมายถูกเป็นสีดำ */
     font-size: 1rem; 
-    background: #000000; 
+    background: #ffffff; /* พื้นหลังวงกลมเป็นสีขาว */
     border-radius: 50%;
-    width: 24px; 
-    height: 24px;
+    width: 28px; 
+    height: 28px;
     display: grid;
     place-items: center;
-    font-weight: bold;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1); 
   }
 
   /* PACKAGE */
@@ -369,30 +379,30 @@
   }
   .price-card:hover{transform:translateY(-8px); box-shadow: 0 40px 80px rgba(255, 255, 255, 0.1);}
   
-  .price-card .eyebrow{color:#666; letter-spacing: 2px; font-weight:600;}
-  .price-card .amt{font-family:'Oswald',sans-serif;font-weight:600;font-size:5.5rem;line-height:1;margin:16px 0 8px; letter-spacing:-2px;}
-  .price-card .amt small{font-size:1.5rem; font-family:'Noto Sans Thai', sans-serif; font-weight:500; letter-spacing:0;}
-  .price-card .sub{font-weight:500;margin-bottom:32px; font-size:1.15rem; color:#444;}
-  .price-card .limit{background:#f4f4f4; border-radius:100px;padding:12px 20px;font-weight:600;font-size:0.95rem; align-self: flex-start;}
+  .price-card .eyebrow{color:#666; letter-spacing: 2px;}
+  .price-card .amt{font-family:'Oswald',sans-serif;font-size:5.5rem;line-height:1;margin:16px 0 8px; letter-spacing:-2px;}
+  .price-card .amt small{font-size:1.5rem; font-family:'SukhumvitSet-Bold', sans-serif; letter-spacing:0;}
+  .price-card .sub{margin-bottom:32px; font-size:1.15rem; color:#444;}
+  .price-card .limit{background:#f4f4f4; border-radius:100px;padding:12px 20px;font-size:0.95rem; align-self: flex-start;}
   .price-card .btn{margin-top:40px;background:#000;color:#fff; width:100%;}
   .price-card .btn:hover{background:#222;}
   
   .includes{background:transparent;}
-  .includes h3{font-family:'Oswald','Noto Sans Thai',sans-serif;font-weight:500;color:#fff;font-size:1.8rem;margin-bottom:32px}
+  .includes h3{font-family:'Oswald','SukhumvitSet-Bold',sans-serif;color:#fff;font-size:1.8rem;margin-bottom:32px}
   .inc-list{display:grid;grid-template-columns:1fr;gap:20px}
-  .inc-list li{list-style:none;display:flex;gap:16px;align-items:center;color:#bbb;font-weight:300; font-size:1.05rem;}
-  .inc-list .tick{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-weight:700;font-size:0.8rem;}
+  .inc-list li{list-style:none;display:flex;gap:16px;align-items:center;color:#bbb; font-size:1.05rem;}
+  .inc-list .tick{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-size:0.8rem;}
 
-  /* PARTNERS (Added section) */
+  /* PARTNERS */
   .partners{background:var(--ink);text-align:center; padding: 140px 0; border-top: 1px solid var(--glass-border);}
   .partners h2{font-size:clamp(2.2rem,4vw,3.5rem);color:#fff;margin-bottom:16px; letter-spacing:-1px;}
-  .partners .intro{color:#888;margin-bottom:60px; font-size:1.15rem; font-weight:300; max-width: 600px; margin-left: auto; margin-right: auto;}
+  .partners .intro{color:#888;margin-bottom:60px; font-size:1.15rem; max-width: 600px; margin-left: auto; margin-right: auto;}
   .ptier{margin-bottom:60px}
   .ptier:last-child{margin-bottom:0;}
-  .ptier .tlab{color:#888;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;font-size:0.9rem;margin-bottom:24px}
+  .ptier .tlab{font-family:'Oswald',sans-serif;color:#888;letter-spacing:0.2em;text-transform:uppercase;font-size:0.9rem;margin-bottom:24px}
   .logos{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
   
-  .logo{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;min-width:180px;height:90px;display:grid;place-items:center;padding:0 24px;font-family:'Oswald',sans-serif;font-weight:500;letter-spacing:1px;color:#888;font-size:1.1rem;transition:all 0.4s ease; backdrop-filter:blur(8px);}
+  .logo{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;min-width:180px;height:90px;display:grid;place-items:center;padding:0 24px;font-family:'Oswald',sans-serif;letter-spacing:1px;color:#888;font-size:1.1rem;transition:all 0.4s ease; backdrop-filter:blur(8px);}
   .logo.presenting{min-width:320px;height:120px;font-size:1.8rem;color:#000;background:#fff;border-color:transparent;}
   .logo.presenting:hover{transform:translateY(-5px); box-shadow:0 15px 30px rgba(255,255,255,0.15);}
   .logo:not(.presenting):hover{border-color:#fff;color:#fff; transform:translateY(-3px); background:rgba(255,255,255,0.1);}
@@ -409,54 +419,82 @@
   .qa.open {border-color:#fff;}
   .qa button{
     width:100%;text-align:left;background:none;border:0;color:#fff;
-    font-family:'Noto Sans Thai',sans-serif;font-weight:400;font-size:1.15rem; letter-spacing:0.5px;
+    font-family:'SukhumvitSet-Bold',sans-serif;font-size:1.15rem; letter-spacing:0.5px;
     padding:24px 16px;cursor:pointer;display:flex;justify-content:space-between;
     gap:24px;align-items:center; transition:0.4s ease;
   }
-  .qa .plus{color:#fff;font-size:1.8rem;transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);flex:0 0 auto; font-weight:300; line-height:1;}
+  .qa .plus{color:#fff;font-size:1.8rem;transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);flex:0 0 auto; line-height:1;}
   .qa.open .plus{transform:rotate(135deg);}
   .qa .ans{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);color:#aaa;}
-  .qa .ans p{padding:0 16px 32px;margin:0; font-size:1rem; line-height:1.8; font-weight:300;}
+  .qa .ans p{padding:0 16px 32px;margin:0; font-size:1rem; line-height:1.8;}
 
   /* FINAL CTA */
   .final{background:#ffffff; color:#000000;text-align:center; padding: 140px 0;}
-  .final h2{font-family:'Oswald',sans-serif;font-size:clamp(3rem,7vw,5.5rem); letter-spacing:-2px; font-weight:700;}
-  .final p{font-weight:400;font-size:1.2rem;margin:16px 0 40px; color:#555;}
+  .final h2{font-family:'Oswald',sans-serif;font-size:clamp(3rem,7vw,5.5rem); letter-spacing:-2px;}
+  .final p{font-size:1.2rem;margin:16px 0 40px; color:#555;}
   .final .btn{background:#000;color:#fff;padding:18px 48px;font-size:1.15rem;}
   .final .btn:hover{background:#222;transform:translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,0.15);}
 
   /* FOOTER */
   footer{background:var(--ink2);color:#666;padding:80px 0 40px; border-top:1px solid var(--glass-border);}
   .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px}
-  .foot .brand{font-size:1.4rem; color:#fff; font-weight:600; font-family:'Oswald', sans-serif; letter-spacing:1px; text-transform:uppercase;}
-  .foot small{display:block;margin-top:12px;font-size:0.95rem;max-width:40ch; line-height:1.6; font-weight:300;}
+  .foot .brand{font-size:1.4rem; color:#fff; font-family:'Oswald', sans-serif; letter-spacing:1px; text-transform:uppercase;}
+  .foot small{display:block;margin-top:12px;font-size:0.95rem;max-width:40ch; line-height:1.6;}
   .foot-links{display:flex;gap:32px;flex-wrap:wrap; align-content: flex-start;}
-  .foot-links a{font-family:'Oswald',sans-serif; font-weight:400;font-size:1rem; letter-spacing:1px; text-transform:uppercase; transition:0.3s; color:#888;}
+  .foot-links a{font-family:'Oswald',sans-serif;font-size:1rem; letter-spacing:1px; text-transform:uppercase; transition:0.3s; color:#888;}
   .foot-links a:hover{color:#fff;}
-  .copy{margin-top:60px;font-size:0.9rem;color:#444; border-top:1px solid var(--glass-border); padding-top:24px; font-weight:300; text-align: center;}
+  .copy{margin-top:60px;font-size:0.9rem;color:#444; border-top:1px solid var(--glass-border); padding-top:24px; text-align: center;}
 
+  /* -------------------------------------
+     MEDIA QUERIES (MOBILE UI FIXES)
+     ------------------------------------- */
   @media(max-width:960px){
-    .about-grid,.pack-grid{grid-template-columns:1fr; gap:40px;}
+    .about-grid, .pack-grid { grid-template-columns: 1fr; gap: 40px; }
     
-    .slider-btn { width:44px; height:44px; font-size:1rem; }
-    .slider-btn.prev { left:16px; }
-    .slider-btn.next { right:16px; }
+    .station-grid { grid-template-columns: repeat(2, 1fr); }
     
-    .navlinks{display:none}
-    .burger{display:flex}
-    .navlinks.show{display:flex;position:absolute;top:110px;left:0;right:0;flex-direction:column;background:rgba(0,0,0,0.95); backdrop-filter:blur(24px); padding:32px 24px; border-bottom:1px solid var(--glass-border); gap:24px;}
-    .nav .btn.desk{display:none}
-
-    .st-body { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .slider-btn { width: 44px; height: 44px; font-size: 1rem; }
+    .slider-btn.prev { left: 16px; }
+    .slider-btn.next { right: 16px; }
+    
+    .navlinks { display: none; }
+    .burger { display: flex; }
+    .navlinks.show {
+      display: flex; position: absolute; top: 110px; left: 0; right: 0;
+      flex-direction: column; background: rgba(0,0,0,0.95); 
+      backdrop-filter: blur(24px); padding: 32px 24px; 
+      border-bottom: 1px solid var(--glass-border); gap: 24px;
+    }
+    .nav .btn.desk { display: none; }
   }
+
   @media(max-width:560px){
-    section {padding: 100px 0;}
-    .hero h1{font-size:clamp(3rem, 11vw, 4.5rem);}
-    .price-card{padding:40px 24px;}
-    .qa button{padding: 20px 8px; font-size: 1.05rem;}
+    section { padding: 80px 0; }
     
-    .st-num { font-size: 5rem; left: 24px; top: 15px; }
-    .st-body { padding: 32px 24px; }
+    .hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); letter-spacing: -1px; }
+    .hero .kick { margin: 12px 0 20px; }
+    .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
+    .hero-cta .btn { width: 100%; }
+    
+    .facts { flex-direction: column; align-items: flex-start; gap: 8px; margin: 32px 0; }
+    .fact:not(:last-child)::after { display: none; }
+    
+    .station-grid { grid-template-columns: 1fr; }
+    
+    .who .chips { gap: 16px; margin-top: 32px; align-items: flex-start; }
+    .who .chip { width: 100%; justify-content: flex-start; }
+    
+    .price-card { padding: 40px 24px; }
+    .price-card .amt { font-size: 4rem; }
+    
+    .logo.presenting { min-width: 100%; height: 100px; font-size: 1.4rem; }
+    .logos { gap: 12px; }
+    .logo { min-width: 140px; padding: 0 16px; font-size: 1rem; }
+    
+    .qa button { padding: 20px 8px; font-size: 1.05rem; }
+    
+    .foot { flex-direction: column; gap: 32px; }
+    .foot-links { flex-direction: column; gap: 16px; }
   }
 </style>
 </head>
@@ -473,7 +511,6 @@
       <a href="#about">เกี่ยวกับการแข่งขัน</a>
       <a href="#format">รูปแบบการแข่งขัน</a>
       <a href="#who">คุณสมบัติ</a>
-      <!-- อัปเดตลิงก์ไปยัง section #partners แทน #train -->
       <a href="#partners">พาร์ทเนอร์</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -527,16 +564,28 @@
         <div class="warrior">YOU ARE NOT TOO OLD.<br><b>YOU ARE A WARRIOR.</b></div>
       </div>
       <div class="pillars">
-        <div class="pillar"><div class="thai-h">ความแข็งแรง</div><p>ทดสอบกำลังผ่านการเคลื่อนไหวในชีวิตจริง</p></div>
-        <div class="pillar"><div class="thai-h">ความทนทาน</div><p>วัดความอึดและหัวใจตลอดเส้นทาง</p></div>
-        <div class="pillar"><div class="thai-h">การทรงตัว</div><p>ควบคุมร่างกายอย่างมั่นคงในทุกจังหวะ</p></div>
-        <div class="pillar"><div class="thai-h">ความพร้อม</div><p>พิสูจน์ว่าคุณพร้อมสำหรับความท้าทาย</p></div>
+        <div class="pillar">
+          <div class="thai-h">ความแข็งแรง</div>
+          <p>ทดสอบกำลังผ่านการเคลื่อนไหวในชีวิตจริง</p>
+        </div>
+        <div class="pillar">
+          <div class="thai-h">ความทนทาน</div>
+          <p>วัดความอึดและหัวใจตลอดเส้นทาง</p>
+        </div>
+        <div class="pillar">
+          <div class="thai-h">การทรงตัว</div>
+          <p>ควบคุมร่างกายอย่างมั่นคงในทุกจังหวะ</p>
+        </div>
+        <div class="pillar">
+          <div class="thai-h">ความพร้อม</div>
+          <p>พิสูจน์ว่าคุณพร้อมสำหรับความท้าทาย</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FORMAT -->
+<!-- FORMAT (8 Stations Grid) -->
 <section class="format" id="format">
   <div class="wrap">
     <div class="head">
@@ -545,20 +594,136 @@
       <p>ภาพรวมการแข่งขัน Functional Fitness ที่ท้าทายทุกมิติของความแข็งแกร่งตลอด 8 สถานี</p>
     </div>
     
-    <div class="station-container">
+    <div class="station-grid">
+      
+      <!-- Station 01 -->
       <div class="station-card">
-        <div class="st-pic" style="background-image: url('Picture/Legacy\ Race\ WM\ HZ.png');">
-          <div class="st-num">08</div>
-          
+        <div class="st-pic" style="background-image: url('Picture/ภาพถ่ายหน้าจอ\ 2569-07-20\ เวลา\ 20.38.00.png');">
+          <div class="st-num">01</div>
           <div class="st-body">
             <div class="st-body-content">
-              <h3>8 STATIONS CHALLENGE</h3>
-              <p>รวมบททดสอบตั้งแต่ Sled Push, SkiErg, ไปจนถึง Farmer's Carry</p>
+              <h3>01 <br>Bear Hug Walk</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>100 m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>Female </strong> <strong>20 kg<br>15 kg</strong></p>
+              </div>
             </div>
-            <span class="metric">XX นาที</span>
           </div>
         </div>
       </div>
+
+      <!-- Station 02 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/ChatGPT\ Image\ 20\ ก.ค.\ 2569\ 20_44_31.png');">
+          <div class="st-num">02</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>02 <br>Sled Push (Straight-arms)</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>50m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>Female</strong> <strong>110 kg<br>90 kg</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 03 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/ChatGPT\ Image\ 20\ ก.ค.\ 2569\ 20_52_16.png');">
+          <div class="st-num">03</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>03<br> Single-arm DB OH Walk Lunge</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>60 m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>Female </strong> <strong>5 kg<br>3 kg</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 04 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/ChatGPT\ Image\ 20\ ก.ค.\ 2569\ 21_48_56.png');">
+          <div class="st-num">04</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>04 <br>Ski Erg</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>500 m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>Female</strong> <strong>n/a <br>n/a</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 05 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/ChatGPT\ Image\ 20\ ก.ค.\ 2569\ 21_48_56.png');">
+          <div class="st-num">05</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>05 <br>Half Burpee SB Throw</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>60 m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>12 kg</strong> <strong>Female <br>10 kg</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 06 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/Legacy\ Race\ WM\ HZ.png');">
+          <div class="st-num">06</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>06 <br>Sled Row</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>50 m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>75 kg</strong> <strong>Female <br>50 kg</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 07 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/Legacy\ Race\ WM\ HZ.png');">
+          <div class="st-num">07</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>07 <br>Air Bike</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>1,000m</strong></p>
+                <p>น้ำหนัก<br> <strong>Male <br>n/a</strong> <strong>Female <br>n/a</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Station 08 -->
+      <div class="station-card">
+        <div class="st-pic" style="background-image: url('Picture/Legacy\ Race\ WM\ HZ.png');">
+          <div class="st-num">08</div>
+          <div class="st-body">
+            <div class="st-body-content">
+              <h3>08 <br>Dead Hang (Hold)</h3>
+              <div class="station-details">
+                <p>ระยะทาง <strong>1,000m</strong></p>
+                <p>จำนวน <strong>Male <br>120 sec</strong> <strong>Female <br>90 sec</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -589,7 +754,7 @@
         <div class="eyebrow">ค่าสมัคร</div>
         <div class="amt">1,800<small> บาท</small></div>
         <div class="sub">ต่อผู้เข้าแข่งขัน 1 ท่าน</div>
-        <div class="limit">🔥 รับจำนวนจำกัดเพียง 350 คน</div>
+        <div class="limit">รับจำนวนจำกัดเพียง 350 คน</div>
         <a href="#" class="btn btn-primary">สมัครเข้าแข่งขันเลย</a>
       </div>
       <div class="includes">
@@ -607,7 +772,7 @@
   </div>
 </section>
 
-<!-- PARTNERS (เพิ่มกล่องสปอนเซอร์ก่อน FAQ) -->
+<!-- PARTNERS -->
 <section class="partners" id="partners">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center"><span></span><div class="eyebrow">ผู้สนับสนุนอย่างเป็นทางการ</div><span></span></div>
@@ -619,8 +784,6 @@
       <div class="tlab">Presenting Sponsor</div>
       <div class="logos">
         <div class="logo presenting">Allianz Ayudhya</div>
-        <!-- สามารถใส่ tag <img> แทน text ด้านบนได้ เช่น:
-        <div class="logo presenting"><img src="path/to/logo.png" alt="Allianz Ayudhya"></div> -->
       </div>
     </div>
     
