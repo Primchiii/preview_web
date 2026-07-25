@@ -47,8 +47,8 @@
     --bg-opacity: 0.30; 
     --bg-about: url('Picture/woman\ workout.png'); 
     --bg-format: url('Picture/man\ push\ up.png');
-    --bg-who: url('Picture/Legacy\ Race\ dead\ hang\ M\ HZ.png');
-    --bg-prep: url('Picture/Legacy\ Station\ 1\ Hi\ Res.png'); 
+    --bg-who: url('Picture/Legacy\ Race\ push\ up\ M\ HZ.png');
+    --bg-prep: url('Picture/Legacy\ Station\ 3\ Hi\ Res.png'); 
     --bg-pack: url('Picture/man\ push\ up.png');
     --bg-partners: url('Picture/man\ running.png');
     --bg-faq: url('Picture/Legacy\ Station\ 4\ Hi\ Res.png');
@@ -96,8 +96,8 @@
     display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
     font-family: var(--font-body); 
     font-weight: 700;
-    font-size: 1.25rem;
-    padding: 16px 40px; border-radius: 100px; border: 1px solid transparent;
+    font-size: 1.15rem;
+    padding: 14px 32px; border-radius: 100px; border: 1px solid transparent;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor:pointer;
     letter-spacing: 0.5px;
   }
@@ -184,57 +184,74 @@
     background:radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 70%, #000000 100%); 
     z-index:1;
   }
-  .slider-btn { 
-    position:absolute; top:50%; transform:translateY(-50%); 
-    background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); 
-    font-size:1.5rem; width:56px; height:56px; display:flex; align-items:center; justify-content:center; 
-    cursor:pointer; z-index:10; border-radius:50%; transition:all 0.4s ease; 
-    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-  }
-  .slider-btn:hover { background:#fff; color:#000; transform:translateY(-50%) scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.3);}
-  .slider-btn.prev { left:32px; }
-  .slider-btn.next { right:32px; }
 
-  .hero-inner {position:relative; z-index:3; padding:120px 0 60px; width: 100%;}
+  .hero-inner {position:relative; z-index:3; padding:100px 0 40px; width: 100%;}
+  
+  /* แก้ไข Grid ของ Hero Section ให้สมดุลขึ้น */
   .hero-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: center;
-    margin-top: 20px;
+    align-items: center; /* ช่วยจัดให้อยู่กึ่งกลางแนวตั้ง */
+    margin-top: -40px; 
   }
   
-  .hero-left { display: flex; justify-content: flex-start; align-items: center; }
-  .hero-left-content { display: flex; flex-direction: column; align-items: flex-start; width: 100%; max-width: 540px; }
+  .hero-left { display: flex; justify-content: center; align-items: center; }
+  .hero-left-content { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 500px; text-align: center; }
   
+  /* ขยายขนาดโลโก้ให้พอดีกับฝั่งขวา */
   .hero-logo-img {
-    width: 100%; max-width: 460px; height: auto; object-fit: contain;
-    margin-bottom: 48px; align-self: center; 
+    width: 100%; max-width: 300px; height: auto; object-fit: contain;
+    margin-bottom: 10px;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
   }
   
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; width: 100%; }
-  
-  .tagline {
-    font-family: var(--font-heading); 
-    letter-spacing: 2px; 
-    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-    text-transform: uppercase;
+  .hero-cta { 
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; 
+    margin-bottom: 30px; width: 100%; 
   }
   
-  .hero-right { display: flex; flex-direction: column; justify-content: center; padding-left: 20px; }
+  /* ปรับ Tagline ให้ใหญ่ขึ้น สมดุลกับปุ่ม */
+  .tagline {
+    font-family: var(--font-heading); 
+    letter-spacing: 4px; /* เพิ่มระยะห่างให้ดูมีมิติและเรียบหรู */
+    font-size: 2rem; /* ขยายขนาดใหญ่ขึ้น */
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  /* นำ translateY ออกเพื่อให้กึ่งกลางอัตโนมัติ */
+ .hero-right { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    height: 100%;            
+    padding-left: 20px; 
+    transform: translateY(-90px); /* ปรับตัวเลขนี้ให้ติดลบมากขึ้น เพื่อขยับข้อความขึ้นไปอีกครับ */
+  }
 
   .hero .lede {
     font-size: 1.35rem;
     color: #ffffff; 
     line-height: 1.8;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
   .hero .lede b {color:#ffffff; font-weight: 700; font-size: 1.4rem;}
   
-  .facts { display: flex; flex-direction: column; gap: 32px; margin: 0; list-style: none; padding: 0; }
-  .fact { display: flex; align-items: center; font-size: 1.35rem; color: #ffffff; font-weight: 400; line-height: 1.4;} 
-  .fact strong { color: #ffffff; font-weight: 700; margin-right: 16px; font-size: 1.4rem;}
+  .facts { display: flex; flex-direction: column; gap: 28px; margin: 0; list-style: none; padding: 0; }
+  .fact { 
+    display: flex; align-items: center; 
+    font-size: 1.35rem; color: #ffffff; font-weight: 400; line-height: 1.4; 
+    gap: 16px;
+  } 
+  .fact svg {
+    flex-shrink: 0; width: 24px; height: 24px;
+    stroke: #ffffff;
+  }
+  .fact strong { color: #ffffff; font-weight: 700; margin-right: 8px; font-size: 1.4rem;}
 
   /* ABOUT */
   .about {background:var(--ink);}
@@ -314,7 +331,6 @@
     padding-top: 14px;
   }
   
-  /* ปรับ align-items เป็น baseline เพื่อให้คำว่า "น้ำหนัก/เวลา" ชิดกับบรรทัดของ MALE พอดี */
   .st-row {
     display: flex; justify-content: space-between; align-items: baseline;
     font-family: var(--font-heading); color: #ffffff; letter-spacing: 0.5px;
@@ -466,11 +482,13 @@
 
   /* FOOTER */
   footer {background:var(--ink2); color:#ffffff; padding:100px 0 60px; border-top:1px solid var(--glass-border);}
-  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+  
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; align-items: center; }
   
   .foot-col { display: flex; flex-direction: column; max-width: 450px; }
   
-  .foot-col .footer-logo { max-width: 160px; height: auto; margin-bottom: 32px; object-fit: contain; }
+  .foot-col .footer-logo { max-width: 280px; height: auto; margin-bottom: 0; object-fit: contain; display: block;}
+  
   .foot-col small { 
     display: block; 
     font-size: 1.2rem; 
@@ -516,15 +534,11 @@
     
     .partner-row-3-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
     
-    .foot { flex-direction: column; gap: 48px; }
-    .foot-col.right-align { align-items: flex-start; text-align: left; max-width: 100%; }
-    .foot-links-right { justify-content: flex-start; margin-bottom: 32px; }
-    .social-wrapper { justify-content: flex-start; }
-    .email-wrapper a { justify-content: flex-start; }
-    
-    .slider-btn { width: 48px; height: 48px; font-size: 1.2rem; }
-    .slider-btn.prev { left: 16px; }
-    .slider-btn.next { right: 16px; }
+    .foot { flex-direction: column; gap: 48px; align-items: center; }
+    .foot-col.right-align { align-items: center; text-align: left; max-width: 100%; }
+    .foot-links-right { justify-content: center; margin-bottom: 32px; }
+    .social-wrapper { justify-content: center; }
+    .email-wrapper a { justify-content: center; }
     
     .navlinks { display: none; }
     .burger { display: flex; }
@@ -536,13 +550,13 @@
     }
     .nav .btn.desk { display: none; }
 
-    .hero-content-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
-    .hero-left-content { align-items: center; margin: 0 auto; }
-    .hero-cta { justify-content: center; }
-    .tagline { align-self: center; text-align: center; }
-    .hero-right { padding-left: 0; }
+    .hero-content-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; margin-top: 0; }
+    .hero-left-content { align-items: center; margin: 0 auto; text-align: center; }
+    .tagline { text-align: center; padding-left: 0; }
+    .hero-right { padding-left: 0; transform: translateY(0); } /* รีเซ็ตให้ในมือถือไม่ต้องดันขึ้น */
     .hero .lede { text-align: center; margin-left: auto; margin-right: auto; }
     .facts { align-items: center; }
+    .fact { align-items: center; }
   }
 
   @media(max-width:560px){
@@ -582,7 +596,7 @@
     .final { padding: 80px 0; }
     .final p { font-size: 1.25rem; }
 
-    .foot-links-right { flex-direction: column; gap: 20px; }
+    .foot-links-right { flex-direction: column; gap: 20px; align-items: center;}
   }
 </style>
 </head>
@@ -615,8 +629,6 @@
     <div class="slide active" style="background-image: url('Picture/Legacy\ Race\ dead\ hang\ M\ HZ.png');"></div>
     <div class="slide" style="background-image: url('Picture/Legacy\ Race\ push\ up\ M\ HZ.png');"></div>
     <div class="slide" style="background-image: url('Picture/Legacy\ Race\ WM\ HZ.png');"></div>
-    <button class="slider-btn prev" id="prevBtn" aria-label="Previous Slide">&#10094;</button>
-    <button class="slider-btn next" id="nextBtn" aria-label="Next Slide">&#10095;</button>
   </div>
   
   <div class="hero-overlay"></div>
@@ -636,20 +648,32 @@
           </div>
           
           <div class="tagline">
-            <span style="color: #ffffff;">WE ARE WARRIORS.</span>
+            WE ARE WARRIORS
           </div>
         </div>
       </div>
       
       <!-- ด้านขวา: ข้อมูล -->
       <div class="hero-right">
-        <p class="lede">การแข่งขัน <b>Functional Fitness</b> สำหรับผู้มีอายุ <b>50–69 ปี</b> ที่จะพิสูจน์ว่าความ<br>แข็งแกร่งไม่ได้ถูกกำหนดด้วยอายุ</p>
+        <p class="lede">การแข่งขัน <b>Functional Fitness</b> สำหรับผู้มีอายุ <b>50–69 ปี</b> <br>ที่จะพิสูจน์ว่าความแข็งแกร่งไม่ได้ถูกกำหนดด้วยอายุ</p>
         
         <ul class="facts">
-          <li class="fact"><strong>วันแข่งขัน</strong> เสาร์ที่ 31 ตุลาคม 2569</li>
-          <li class="fact"><strong>สถานที่</strong> IMPACT Exhibition Hall 5 เมืองทองธานี</li>
-          <li class="fact"><strong>ค่าสมัคร</strong> 1,800 บาท</li>
-          <li class="fact"><strong>รับจำนวนจำกัด</strong> เพียง 350 คน</li>
+          <li class="fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <div><strong>วันแข่งขัน</strong> เสาร์ที่ 31 ตุลาคม 2569</div>
+          </li>
+          <li class="fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div><strong>สถานที่</strong> IMPACT Exhibition Hall 5 เมืองทองธานี</div>
+          </li>
+          <li class="fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <div><strong>ค่าสมัคร</strong> 1,800 บาท</div>
+          </li>
+          <li class="fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div><strong>รับจำนวนจำกัด</strong> เพียง 350 คน</div>
+          </li>
         </ul>
       </div>
       
@@ -855,7 +879,7 @@
 <section class="who" id="who">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center"><span></span><div class="eyebrow">คุณสมบัติผู้สมัคร</div><span></span></div>
-    <h2 class="thai-h">Allianz Ayudhya Presents LEGACY RACE</h2>
+    <h2 class="thai-h">Allianz Ayudhya<br> Presents LEGACY RACE</h2>
     <p>LEGACY Race เปิดรับผู้สมัครที่มีอายุ 50–69 ปี ที่มีพื้นฐานการออกกำลังกายและมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p>
     
     <div class="chips">
@@ -957,7 +981,7 @@
       <div class="ptier">
         <div class="tlab">OFFICIAL TITLE PARTNER</div>
         <div class="logo-box box-large">
-          <img src="Picture/LOGO-01_0.png" alt="Allianz Ayudhya">
+          <img src="Picture/logo01.png" alt="Allianz Ayudhya">
         </div>
       </div>
       
@@ -965,7 +989,7 @@
       <div class="ptier">
         <div class="tlab">OFFICIAL APPAREL PARTNER</div>
         <div class="logo-box box-medium">
-          <img src="Picture/LOGO_3_0.png" alt="YUEDPAO">
+          <img src="Picture/logo02.png" alt="YUEDPAO">
         </div>
       </div>
       
@@ -974,25 +998,25 @@
         <div class="ptier">
           <div class="tlab">OFFICIAL HEALTHCARE PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/LOGO_4_0.png" alt="Besins Healthcare">
+            <img src="Picture/logo03.png" alt="Besins Healthcare">
           </div>
         </div>
         <div class="ptier">
           <div class="tlab">OFFICIAL MEDICAL PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/LOGO_5_0.png" alt="Samitivej">
+            <img src="Picture/logo04.png" alt="Samitivej">
           </div>
         </div>
         <div class="ptier">
           <div class="tlab">OFFICIAL VENUE PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/LOGO_6_0.png" alt="IMPACT">
+            <img src="Picture/logo05.png" alt="IMPACT">
           </div>
         </div>
         <div class="ptier">
           <div class="tlab">OFFICIAL SECURITY PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/LOGO_7_0.png" alt="Double T">
+            <img src="Picture/logo06.png" alt="Double T">
           </div>
         </div>
         
@@ -1000,7 +1024,7 @@
         <div class="ptier">
           <div class="tlab">OFFICIAL PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/YOUR_LOGO_5.png" alt="Partner 5">
+            <img src="Picture/logo07.png" alt="Partner 5">
           </div>
         </div>
         
@@ -1008,7 +1032,7 @@
         <div class="ptier">
           <div class="tlab">OFFICIAL PARTNER</div>
           <div class="logo-box box-small">
-            <img src="Picture/YOUR_LOGO_6.png" alt="Partner 6">
+            <img src="Picture/logo08.png" alt="Partner 6">
           </div>
         </div>
       </div>
@@ -1021,7 +1045,7 @@
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center"><span></span><div class="eyebrow">คำถามที่พบบ่อย</div><span></span></div>
-    <h2>FAQs</h2>
+    <h2>FAQ<span style="font-family: var(--font-body); font-size: 0.8em; font-weight: normal; text-transform: none;">s</span></h2>
     <div class="acc">
       <div class="qa"><button>ใครสามารถสมัครเข้าแข่งขันได้บ้าง?<span class="plus">+</span></button><div class="ans"><p>ผู้สมัครต้องมีอายุ 50–69 ปี มีพื้นฐานการออกกำลังกาย และมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p></div></div>
       <div class="qa"><button>ค่าสมัครเท่าไร และครอบคลุมอะไรบ้าง?<span class="plus">+</span></button><div class="ans"><p>ค่าสมัคร 1,800 บาท ครอบคลุมสิทธิ์เข้าแข่งขัน เสื้อ Official Competitor T-shirt แบรนด์ Yuedpao ประกันอุบัติเหตุ บัตรเข้าชมสำหรับผู้ติดตาม 2 ใบ และ LEGACY Goodies Bag</p></div></div>
@@ -1113,13 +1137,6 @@
 
   if(heroSlides.length > 0) {
     startHeroSlider();
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    if(prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => { showHeroSlide(currentHeroSlide - 1); resetHeroSlider(); });
-      nextBtn.addEventListener('click', () => { showHeroSlide(currentHeroSlide + 1); resetHeroSlider(); });
-    }
   }
 
   // 2. Mobile Menu & Navbar bg on scroll
