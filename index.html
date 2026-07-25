@@ -11,7 +11,6 @@
   /* =========================================
      FONT FACES
      ========================================= */
-  /* Bebas Font (English) */
   @font-face {
     font-family: 'Bebas';
     src: local('Bebas Regular'), local('Bebas-Regular'), url('Bebas-Regular.ttf') format('truetype');
@@ -19,7 +18,6 @@
     font-style: normal;
   }
 
-  /* Sukhumvit Set Font (Thai) */
   @font-face {
     font-family: 'Sukhumvit Set';
     src: local('Sukhumvit Set Text'), url('SukhumvitSet.ttc#Sukhumvit Set Text') format('truetype');
@@ -37,11 +35,8 @@
     --ink: #000000;          
     --ink2: #050505;         
     --paper: #ffffff;        
-    --accent: #ffffff;       
-    --accent-2: #cccccc;     
     --glass: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --muted: #888888;
+    --glass-border: rgba(255, 255, 255, 0.25);
     --max: 1200px;
 
     /* Font Stacks */
@@ -52,11 +47,11 @@
     --bg-opacity: 0.30; 
     --bg-about: url('Picture/woman\ workout.png'); 
     --bg-format: url('Picture/man\ push\ up.png');
-    --bg-who: url('Picture/Legacy\ Race\ push\ up\ M\ HZ.png');
+    --bg-who: url('Picture/Legacy\ Race\ dead\ hang\ M\ HZ.png');
     --bg-prep: url('Picture/Legacy\ Station\ 1\ Hi\ Res.png'); 
     --bg-pack: url('Picture/man\ push\ up.png');
     --bg-partners: url('Picture/man\ running.png');
-    --bg-faq: url('Picture/Legacy\ Race\ WM\ HZ.png');
+    --bg-faq: url('Picture/Legacy\ Station\ 4\ Hi\ Res.png');
     --bg-footer: url('');
   }
   
@@ -68,14 +63,14 @@
     font-weight: 400;
     background: var(--ink);
     color: var(--paper);
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
   
   h1, h2, h3, .display {
     font-family: var(--font-heading);
-    line-height: 1.1;
+    line-height: 1.15;
     font-weight: normal;
   }
   
@@ -91,8 +86,9 @@
     font-family: var(--font-heading);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-size: 1.2rem;
-    color: var(--muted);
+    font-size: 1.35rem;
+    color: #ffffff;
+    font-weight: 700;
   }
   
   /* Buttons */
@@ -100,8 +96,8 @@
     display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
     font-family: var(--font-body); 
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 14px 36px; border-radius: 100px; border: 1px solid transparent;
+    font-size: 1.25rem;
+    padding: 16px 40px; border-radius: 100px; border: 1px solid transparent;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor:pointer;
     letter-spacing: 0.5px;
   }
@@ -115,9 +111,9 @@
     background: #f0f0f0;
   }
   .btn-ghost {
-    background: rgba(255,255,255,0.02);
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
   }
   .btn-ghost:hover {
@@ -140,15 +136,15 @@
   .faq::before { background-image: var(--bg-faq); }
   footer::before { background-image: var(--bg-footer); }
 
-  .sec-label {display:flex; align-items:center; gap:16px; margin-bottom:24px;}
+  .sec-label {display:flex; align-items:center; gap:16px; margin-bottom:32px;}
   .sec-label span {height:1px; width:60px; background:var(--glass-border);}
 
   /* NAV */
   header {
     position:fixed; top:0; left:0; right:0; z-index:50;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.8);
     backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--glass-border);
+    border-bottom:1px solid rgba(255,255,255,0.1);
     transition: all 0.3s ease;
   }
   .nav {display:flex; align-items:center; height:90px}
@@ -157,10 +153,12 @@
   .brand img {height: 60px; width: auto; object-fit: contain;}
   .navlinks {display:flex; gap:32px; align-items:center;}
   .navlinks a {
-    font-size: 1.05rem; color: #cccccc; font-weight: 700;
+    font-size: 1rem;
+    color: #ffffff; 
+    font-weight: 700;
     position:relative; padding:8px 0; transition:0.3s; 
   }
-  .navlinks a:hover {color:#fff}
+  .navlinks a:hover {color:#cccccc}
   .navlinks a::after {
     content:""; position:absolute; left:50%; bottom:2px;
     height:1px; width:0; background:#ffffff;
@@ -168,9 +166,9 @@
     transform:translateX(-50%);
   }
   .navlinks a:hover::after {width:100%}
-  .nav .btn.desk {padding:10px 24px; font-size:0.95rem; margin-left: auto;}
-  .burger {display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; margin-left: auto;}
-  .burger span {width:26px; height:2px; background:#fff; border-radius:2px; transition:0.3s;}
+  .nav .btn.desk {padding:12px 28px; font-size:1.1rem; margin-left: auto;}
+  .burger {display:none; flex-direction:column; gap:6px; background:none; border:0; cursor:pointer; margin-left: auto; padding: 10px;}
+  .burger span {width:30px; height:3px; background:#fff; border-radius:2px; transition:0.3s;}
 
   /* HERO */
   .hero {min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;}
@@ -183,108 +181,92 @@
   .slide.active {opacity:1; transform:scale(1);}
   .hero-overlay {
     position:absolute; inset:0; 
-    background:radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 70%, #000000 100%); 
+    background:radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 70%, #000000 100%); 
     z-index:1;
   }
   .slider-btn { 
     position:absolute; top:50%; transform:translateY(-50%); 
-    background:var(--glass); color:#fff; border:1px solid var(--glass-border); 
-    font-size:1.2rem; width:50px; height:50px; display:flex; align-items:center; justify-content:center; 
+    background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); 
+    font-size:1.5rem; width:56px; height:56px; display:flex; align-items:center; justify-content:center; 
     cursor:pointer; z-index:10; border-radius:50%; transition:all 0.4s ease; 
     backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
   }
-  .slider-btn:hover { background:#fff; color:#000; transform:translateY(-50%) scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.2);}
+  .slider-btn:hover { background:#fff; color:#000; transform:translateY(-50%) scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.3);}
   .slider-btn.prev { left:32px; }
   .slider-btn.next { right:32px; }
 
-  .hero-inner {position:relative; z-index:3; padding:100px 0 40px;}
-  .presents {
-    color:var(--muted); letter-spacing:0.15em; font-size:1.2rem; 
-    font-family:var(--font-heading); margin-bottom:10px; text-transform:uppercase;
+  .hero-inner {position:relative; z-index:3; padding:120px 0 60px; width: 100%;}
+  .hero-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 20px;
   }
-  .presents b {color:#fff}
-  .hero h1 {
-    font-size: clamp(4rem, 10vw, 9rem); color:#fff; margin:0; 
-    letter-spacing: 2px; line-height: 0.9;
-  }
-  .hero h1 .yr {color:rgba(255,255,255,0.3);}
-  .hero .kick {
-    font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); 
-    color: #fff; margin: 16px 0 24px; letter-spacing: 2px; line-height: 1.1;
-  }
-  .hero .lede {font-size:1.15rem; max-width:600px; color:#bbbbbb; line-height: 1.8;}
-  .hero .lede b {color:#fff; font-weight: 700;}
   
-  .facts {display:flex; flex-direction:row; flex-wrap:wrap; gap:12px; margin:40px 0; list-style:none; padding:0; align-items:center;}
-  .fact {display:flex; align-items:center; font-size:1.1rem; color:#cccccc; font-weight: 700;}
-  .fact strong {color:#fff; margin-right:8px; font-weight: 700;}
-  .fact:not(:last-child)::after {content:"|"; color:var(--glass-border); margin-left:12px; font-weight: 400;}
+  .hero-left { display: flex; justify-content: flex-start; align-items: center; }
+  .hero-left-content { display: flex; flex-direction: column; align-items: flex-start; width: 100%; max-width: 540px; }
   
-  .hero-cta {display:flex; flex-wrap:wrap; gap:16px}
+  .hero-logo-img {
+    width: 100%; max-width: 460px; height: auto; object-fit: contain;
+    margin-bottom: 48px; align-self: center; 
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+  }
+  
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; width: 100%; }
+  
   .tagline {
-    margin-top:48px; font-family: var(--font-heading); letter-spacing: 2px; 
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--muted); text-transform: uppercase;
+    font-family: var(--font-heading); 
+    letter-spacing: 2px; 
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    text-transform: uppercase;
   }
-  .tagline i {font-style:normal; color:#ffffff;}
+  
+  .hero-right { display: flex; flex-direction: column; justify-content: center; padding-left: 20px; }
+
+  .hero .lede {
+    font-size: 1.35rem;
+    color: #ffffff; 
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .hero .lede b {color:#ffffff; font-weight: 700; font-size: 1.4rem;}
+  
+  .facts { display: flex; flex-direction: column; gap: 32px; margin: 0; list-style: none; padding: 0; }
+  .fact { display: flex; align-items: center; font-size: 1.35rem; color: #ffffff; font-weight: 400; line-height: 1.4;} 
+  .fact strong { color: #ffffff; font-weight: 700; margin-right: 16px; font-size: 1.4rem;}
 
   /* ABOUT */
   .about {background:var(--ink);}
-  .about h2 {font-size: clamp(2.5rem, 5vw, 4.5rem); color:#fff; max-width:18ch; margin-bottom:32px; letter-spacing: 1px;}
-  .about h2 em {font-style:normal; color:var(--muted); font-family: var(--font-heading);}
-  .about-grid {display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start}
-  .about p {color:#999999; font-size:1.1rem; margin-bottom:24px; line-height: 1.8;}
+  .about h2 {font-size: clamp(2.8rem, 5vw, 5rem); color:#ffffff; max-width:18ch; margin-bottom:32px; letter-spacing: 1px;}
+  .about h2 em {font-style:normal; color:#ffffff; font-family: var(--font-heading);}
+  .about-grid {display:grid; grid-template-columns:1fr; gap:40px; align-items:start; max-width: 900px;}
+  .about p {color:#ffffff; font-size:1.25rem; margin-bottom:24px; line-height: 1.8; font-weight: 400;} 
   .about .warrior {
-    margin-top:40px; font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem); 
-    letter-spacing: 2px; color:#fff; line-height:1.1; text-transform:uppercase;
+    margin-top:40px; font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.2rem); 
+    letter-spacing: 2px; color:#ffffff; line-height:1.2; text-transform:uppercase;
   }
   
-  /* PILLARS */
-  .pillars { display: flex; flex-direction: column; gap: 48px; }
-  .pillar { 
-    display: flex; align-items: center; gap: 24px; 
-    background: transparent; border: none; padding: 0; 
-  }
-  .pillar-num { 
-    font-family: var(--font-heading); 
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    color: #ffffff; 
-    line-height: 0.8; 
-    letter-spacing: 1px;
-    flex-shrink: 0;
-  }
-  .pillar-content { 
-    display: flex; flex-direction: column; gap: 6px; 
-  }
-  .pillar-content .thai-h {
-    font-size: clamp(1.3rem, 2vw, 1.6rem); 
-    color: #ffffff; 
-    margin: 0; line-height: 1.1;
-  }
-  .pillar-content p { 
-    margin: 0; font-size: clamp(0.95rem, 1.5vw, 1.1rem); 
-    color: #999999; line-height: 1.5; 
-  }
-
   /* =========================================
      FORMAT (8 Stations Grid)
      ========================================= */
   .format {background: var(--ink2);}
   .format .head {text-align:center; margin-bottom:60px; display:flex; flex-direction:column; align-items:center;}
-  .format h2 {font-size: clamp(3.2rem, 7vw, 5rem); color:#fff; letter-spacing: 1px;}
-  .format .head p {color:#999; margin-top:16px; font-size:1.15rem; max-width:1000px; font-weight: 700;}
+  .format h2 {font-size: clamp(3.5rem, 7vw, 5.5rem); color:#ffffff; letter-spacing: 1px;}
+  .format .head p {color:#ffffff; margin-top:20px; font-size:1.35rem; max-width:1000px; font-weight: 400; line-height: 1.6;} 
   
   .station-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
     max-width: var(--max); margin: 0 auto;
   }
   
   .station-card {
-    background: #e6e6e6; 
-    border-radius: 12px;
+    background: #222; 
+    border-radius: 16px;
     overflow: hidden; 
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-    aspect-ratio: 4 / 5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+    min-height: 480px;
     display: block; 
   }
 
@@ -292,200 +274,235 @@
     width: 100%; height: 100%;
     background-size: cover; background-position: center;
     position: absolute; inset: 0;
-    transition: filter 0.5s ease;
   }
 
   .st-pic::after {
     content:""; position:absolute; inset:0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.95) 100%);
+    background: linear-gradient(180deg, transparent 15%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.9) 80%, #000000 100%);
     pointer-events: none; z-index: 1;
   }
 
   .st-body {
-    padding: 20px; background: transparent; 
+    padding: 24px; background: transparent; 
     position: absolute; bottom: 0; left: 0; right: 0;
-    z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px;
+    z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; 
+    gap: 6px; 
   }
   
   .st-num {
     font-family: var(--font-heading);
-    font-size: 1.4rem; color: #fff; line-height: 1;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    font-size: 1.8rem; 
+    color: #ffffff; 
+    line-height: 1; 
+    text-shadow: 0 2px 5px rgba(0,0,0,1);
+    margin-bottom: 0px;
   }
 
   .st-body h3 {
     font-family: var(--font-heading); 
-    font-size: 1.25rem; 
+    font-size: 1.8rem; 
     letter-spacing: 1px;
-    margin: 0 0 8px 0; color: #ffffff; text-transform: uppercase;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.8); line-height: 1.1;
+    margin: 0 0 10px 0; color: #ffffff; text-transform: uppercase;
+    text-shadow: 0 2px 5px rgba(0,0,0,1); 
+    line-height: 1.1;
   }
   
   .st-table {
-    display: flex; flex-direction: column; gap: 6px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 10px;
+    display: flex; flex-direction: column; 
+    gap: 8px; 
+    border-top: 1px solid rgba(255,255,255,0.4);
+    padding-top: 14px;
   }
   
+  /* ปรับ align-items เป็น baseline เพื่อให้คำว่า "น้ำหนัก/เวลา" ชิดกับบรรทัดของ MALE พอดี */
   .st-row {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    font-family: var(--font-heading); font-size: 0.8rem; color: #d0d0d0; letter-spacing: 0.5px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--font-heading); color: #ffffff; letter-spacing: 0.5px;
+    line-height: 1.2;
   }
   
   .st-label {
     text-align: left;
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: 0.75rem;
-    color: #b0b0b0;
+    font-size: 1.2rem; 
+    color: #ffffff;
+    line-height: 1.2;
   }
   
-  .st-vals { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-  .st-vals span { display: flex; gap: 6px; justify-content: flex-end; align-items: baseline; width: 100%; color: #fff; }
-  .st-vals span strong { color: #fff; font-weight: normal; font-size: 0.9rem; letter-spacing: 1px; }
+  .st-vals { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .st-vals span { display: flex; gap: 8px; justify-content: flex-end; align-items: baseline; width: 100%; color: #ffffff; font-size: 1.1rem; }
+  .st-vals span strong { color: #ffffff; font-weight: normal; font-size: 1.6rem; letter-spacing: 1px; line-height: 1.1; }
 
   /* =========================================
-     WHO Section (Updated to White Background)
+     WHO Section
      ========================================= */
   .who { background: #ffffff; text-align: center; border-top: 1px solid #eeeeee; position: relative; }
-  .who::before { display: none; } /* ลบรูปภาพพื้นหลังออกเพื่อให้เป็นสีขาวล้วน */
+  .who::before { display: none; } 
   
-  .who .sec-label span { background: #dddddd; }
-  .who .eyebrow { color: #888888; }
+  .who .sec-label span { background: #000000; }
+  .who .eyebrow { color: #000000; font-weight: 700; }
   
-  .who h2 { font-size: clamp(2.5rem, 6vw, 4rem); color: #000000; margin-bottom: 24px; font-weight: 700;}
-  .who p { max-width: 700px; margin: 0 auto; font-size: 1.15rem; color: #555555; font-weight: 700;}
+  .who h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); color: #000000; margin-bottom: 24px; font-weight: 700;}
+  .who p { max-width: 800px; margin: 0 auto; font-size: 1.35rem; color: #000000; font-weight: 400; line-height: 1.7;}
   
   .who .chips { 
     display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; 
-    gap: 40px; align-items: center; margin-top: 50px; max-width: 100%; margin-left: auto; margin-right: auto; 
+    gap: 24px; align-items: center; margin-top: 50px; max-width: 100%; margin-left: auto; margin-right: auto; 
   }
   .who .chip { 
-    background: transparent; border: none; padding: 0; font-size: 1.25rem; color: #000000; 
-    display: flex; align-items: center; gap: 10px; width: auto; font-weight: 700; 
+    background: transparent; border: none; padding: 0; font-size: 1.35rem; color: #000000;
+    display: flex; align-items: center; gap: 12px; width: auto; font-weight: 700; 
   }
   .who .chip .tick { 
-    color: #ffffff; font-size: 1rem; background: #000000; border-radius: 50%; 
-    width: 32px; height: 32px; display: grid; place-items: center; flex-shrink: 0; 
+    color: #ffffff; font-size: 1.1rem; background: #000000; border-radius: 50%; 
+    width: 36px; height: 36px; display: grid; place-items: center; flex-shrink: 0; 
   }
 
   /* PREPARATION Section */
   .preparation { background: var(--ink2); border-top: 1px solid var(--glass-border); position: relative; padding: 140px 0; }
-  .prep-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+  .prep-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
   .prep-head { margin-bottom: 60px; }
-  .prep-head h2 { font-family: var(--font-heading); font-size: clamp(3.2rem, 7vw, 5rem); color: #fff; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
-  .prep-head p { font-size: 1.15rem; color: #ccc; max-width: 700px; line-height: 1.8; font-weight: 700; }
-  .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; }
-  .prep-item { display: flex; flex-direction: column; gap: 8px; }
-  .prep-num { font-family: var(--font-heading); font-size: 2.5rem; color: #ffffff; line-height: 1; margin-bottom: 4px; }
-  .prep-title { font-weight: 700; font-size: 1.2rem; color: #ffffff; margin-bottom: 4px; }
-  .prep-desc { font-size: 0.95rem; color: #aaaaaa; line-height: 1.6; font-weight: 700;}
+  .prep-head h2 { font-family: var(--font-heading); font-size: clamp(3.5rem, 7vw, 5.5rem); color: #ffffff; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
+  .prep-head p { font-size: 1.35rem; color: #ffffff; max-width: 800px; line-height: 1.8; font-weight: 400; }
+  .prep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 40px; }
+  .prep-item { display: flex; flex-direction: column; gap: 12px; }
+  .prep-num { font-family: var(--font-heading); font-size: 3rem; color: #ffffff; line-height: 1; margin-bottom: 4px; }
+  .prep-title { font-weight: 700; font-size: 1.4rem; color: #ffffff; margin-bottom: 4px; } 
+  .prep-desc { font-size: 1.2rem; color: #ffffff; line-height: 1.6; font-weight: 400;}
 
-/* PACKAGE (Updated price-card eyebrow for bigger, bolder look) */
+  /* PACKAGE */
   .pack {background:var(--ink2); border-top: 1px solid var(--glass-border);}
   .pack-grid {display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center}
   
   .price-card {
-    background:#ffffff; color:#000000; border-radius:32px; padding:48px; display:flex; flex-direction:column;
+    background:#ffffff; color:#000000; border-radius:32px; padding:56px 48px; display:flex; flex-direction:column;
     box-shadow: 0 30px 60px rgba(255, 255, 255, 0.05); transition: 0.5s ease;
   }
-  .price-card:hover {transform:translateY(-8px); box-shadow: 0 40px 80px rgba(255, 255, 255, 0.1);}
+  .price-card:hover {transform:translateY(-8px); box-shadow: 0 40px 80px rgba(255, 255, 255, 0.15);}
   
-  /* ปรับแต่งคำว่าค่าสมัครให้ใหญ่และเด่นขึ้นชัดเจน */
   .price-card .eyebrow {
-    color: #111111; 
-    font-size: 1.6rem; 
-    letter-spacing: 2px; 
+    color: #000000; 
+    font-size: 1.7rem; 
+    letter-spacing: 1px; 
     font-weight: 700;
   }
   
-  .price-card .amt { font-family: var(--font-heading); font-size: clamp(4rem, 8vw, 6rem); line-height: 1; margin: 16px 0 8px; letter-spacing: 1px; }
-  .price-card .amt small {font-size: 1.5rem; font-family: var(--font-body); font-weight: 700; letter-spacing: 0;}
-  .price-card .sub {margin-bottom:32px; font-size:1.15rem; color:#444; font-weight: 700;}
-  .price-card .limit {background:#f4f4f4; border-radius:100px; padding:12px 20px; font-size:0.95rem; align-self: flex-start; font-weight: 700;}
-  .price-card .btn {margin-top:40px; background:#000; color:#fff; width:100%;}
+  .price-card .amt { font-family: var(--font-heading); font-size: clamp(4.5rem, 8vw, 6.5rem); line-height: 1; margin: 16px 0 12px; letter-spacing: 1px; color:#000000; }
+  .price-card .amt small {font-size: 1.6rem; font-family: var(--font-body); font-weight: 700; letter-spacing: 0;}
+  .price-card .sub {margin-bottom:32px; font-size:1.35rem; color:#000000; font-weight: 700;}
+  .price-card .limit {background:#eeeeee; border-radius:100px; padding:16px 24px; font-size:1.15rem; align-self: flex-start; font-weight: 700; color:#000000;}
+  .price-card .btn {margin-top:48px; background:#000000; color:#ffffff; width:100%;}
   .price-card .btn:hover {background:#222;}
   
+  .price-card .price-note {
+    margin-top: 24px;
+    font-size: 1.05rem; 
+    color: #000000; 
+    line-height: 1.6;
+    text-align: center;
+  }
+  
   .includes {background:transparent;}
-  .includes h3 {font-family: var(--font-heading); color:#fff; font-size:2.2rem; margin-bottom:32px; letter-spacing: 1px;}
-  .inc-list {display:grid; grid-template-columns:1fr; gap:20px}
-  .inc-list li {list-style:none; display:flex; gap:16px; align-items:center; color:#bbb; font-size:1.05rem; font-weight: 700;}
-  .inc-list .tick {flex:0 0 24px; width:24px; height:24px; border-radius:50%; background:#fff; color:#000; display:grid; place-items:center; font-size:0.8rem;}
+  .includes h3 {font-family: var(--font-heading); color:#ffffff; font-size:2.6rem; margin-bottom:32px; letter-spacing: 1px;}
+  .inc-list {display:grid; grid-template-columns:1fr; gap:24px}
+  .inc-list li {list-style:none; display:flex; gap:20px; align-items:flex-start; color:#ffffff; font-size:1.25rem; font-weight: 400; line-height: 1.5;}
+  .inc-list .tick {flex:0 0 28px; width:28px; height:28px; border-radius:50%; background:#ffffff; color:#000000; display:grid; place-items:center; font-size:1rem; margin-top: 4px;}
 
   /* PARTNERS */
-  .partners { background: var(--ink); text-align: center; border-top: 1px solid var(--glass-border); position: relative; padding: 120px 0; }
-  .partners h2 { font-family: var(--font-heading); font-size: clamp(3rem, 6vw, 4.5rem); color: #fff; margin-bottom: 16px; letter-spacing: 2px; line-height: 1; }
-  .partners .intro { color: #ccc; margin-bottom: 60px; font-size: 1.15rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 700;}
+  .partners { background: var(--ink); text-align: center; border-top: 1px solid var(--glass-border); position: relative; padding: 140px 0; }
+  .partners h2 { font-family: var(--font-heading); font-size: clamp(3.5rem, 6vw, 5rem); color: #ffffff; margin-bottom: 24px; letter-spacing: 2px; line-height: 1; }
+  .partners .intro { color: #ffffff; margin-bottom: 72px; font-size: 1.35rem; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 400;}
   
-  .partners-container { display: flex; flex-direction: column; align-items: center; gap: 48px; width: 100%; max-width: 1000px; margin: 0 auto; z-index: 2; position: relative; }
+  .partners-container { display: flex; flex-direction: column; align-items: center; gap: 56px; width: 100%; max-width: 1000px; margin: 0 auto; z-index: 2; position: relative; }
   .ptier { display: flex; flex-direction: column; align-items: center; width: 100%; }
-  .ptier .tlab { font-family: var(--font-heading); color: #ffffff; letter-spacing: 0.1em; text-transform: uppercase; font-size: 1.1rem; margin-bottom: 12px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+  
+  .ptier .tlab { font-family: var(--font-heading); color: #ffffff; letter-spacing: 0.1em; text-transform: uppercase; font-size: 1.2rem; margin-bottom: 16px; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
   
   .logo-box {
-    background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center;
     padding: 16px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease;
   }
   .logo-box:hover { transform: translateY(-5px); }
   .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-  .box-large { width: 100%; max-width: 380px; height: 120px; }
-  .box-medium { width: 100%; max-width: 320px; height: 100px; }
-  .box-small { width: 100%; height: 80px; padding: 12px; }
-  .partner-row-4-center { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; width: 100%; }
+  .box-large { width: 100%; max-width: 420px; height: 140px; padding: 24px;}
+  .box-medium { width: 100%; max-width: 360px; height: 120px; padding: 20px;}
+  .box-small { width: 100%; max-width: 280px; height: 100px; padding: 16px; margin: 0 auto; }
+  
+  .partner-row-3-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 32px 24px; 
+    width: 100%; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+  }
 
   /* FAQ */
   .faq {background:var(--ink2); border-top: 1px solid var(--glass-border);}
-  .faq h2 {font-size: clamp(3rem, 6vw, 4.5rem); color:#fff; text-align:center; margin-bottom:60px; letter-spacing: 1px;}
-  .acc {max-width:800px; margin:0 auto; display:flex; flex-direction:column;}
-  .qa {background:transparent; border:none; border-bottom:1px solid var(--glass-border); border-radius:0; transition:all 0.4s ease;}
-  .qa:first-child {border-top:1px solid var(--glass-border);}
-  .qa:hover {border-color:rgba(255,255,255,0.3);}
-  .qa.open {border-color:#fff;}
+  .faq h2 {font-size: clamp(3.5rem, 6vw, 5.5rem); color:#ffffff; text-align:center; margin-bottom:72px; letter-spacing: 1px;}
+  .acc {max-width:850px; margin:0 auto; display:flex; flex-direction:column;}
+  .qa {background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.2); border-radius:0; transition:all 0.4s ease;}
+  .qa:first-child {border-top:1px solid rgba(255,255,255,0.2);}
+  .qa:hover {border-color:rgba(255,255,255,0.5);}
+  .qa.open {border-color:#ffffff;}
   .qa button {
-    width:100%; text-align:left; background:none; border:0; color:#fff;
-    font-family: var(--font-body); font-weight: 700; font-size:1.15rem; letter-spacing:0.5px;
-    padding:24px 16px; cursor:pointer; display:flex; justify-content:space-between; gap:24px; align-items:center; transition:0.4s ease;
+    width:100%; text-align:left; background:none; border:0; color:#ffffff;
+    font-family: var(--font-body); font-weight: 700; font-size:1.35rem; letter-spacing:0.5px;
+    padding:32px 16px; cursor:pointer; display:flex; justify-content:space-between; gap:24px; align-items:center; transition:0.4s ease;
   }
-  .qa .plus {color:#fff; font-size:2rem; font-family: var(--font-heading); transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); flex:0 0 auto; line-height:1;}
+  .qa .plus {color:#ffffff; font-size:2.2rem; font-family: var(--font-heading); transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); flex:0 0 auto; line-height:1;}
   .qa.open .plus {transform:rotate(135deg);}
-  .qa .ans {max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); color:#aaa;}
-  .qa .ans p {padding:0 16px 32px; margin:0; font-size:1.05rem; line-height:1.8; font-weight: 700;}
+  .qa .ans {max-height:0; overflow:hidden; transition:max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); color:#ffffff;}
+  .qa .ans p {padding:0 16px 40px; margin:0; font-size:1.25rem; line-height:1.8; font-weight: 400; color:#ffffff;}
 
   /* FINAL CTA */
   .final {background:#ffffff; color:#000000; text-align:center; padding: 140px 0;}
-  .final h2 {font-family: var(--font-heading); font-size:clamp(3.5rem, 8vw, 6rem); letter-spacing: 2px; line-height: 1;}
-  .final p {font-size:1.2rem; margin:16px 0 40px; color:#555; font-weight: 700;}
-  .final .btn {background:#000; color:#fff; padding:18px 48px; font-size:1.15rem;}
-  .final .btn:hover {background:#222; transform:translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,0.15);}
+  .final h2 {font-family: var(--font-heading); font-size:clamp(4rem, 8vw, 7rem); letter-spacing: 2px; line-height: 1;}
+  .final p {font-size:1.45rem; margin:24px 0 48px; color:#000000; font-weight: 700;}
+  .final .btn {background:#000000; color:#ffffff; padding:20px 56px; font-size:1.35rem;}
+  .final .btn:hover {background:#222; transform:translateY(-3px); box-shadow:0 12px 24px rgba(0,0,0,0.2);}
 
   /* FOOTER */
-  footer {background:var(--ink2); color:#666; padding:80px 0 40px; border-top:1px solid var(--glass-border);}
+  footer {background:var(--ink2); color:#ffffff; padding:100px 0 60px; border-top:1px solid var(--glass-border);}
   .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
   
-  .foot-col { display: flex; flex-direction: column; max-width: 400px; }
-  .foot-col .brand { font-size: 1.6rem; color: #fff; font-family: var(--font-heading); letter-spacing: 2px; text-transform: uppercase; }
-  .foot-col small { display: block; margin-top: 12px; font-size: 0.95rem; line-height: 1.6; font-weight: 700; color: #888; }
+  .foot-col { display: flex; flex-direction: column; max-width: 450px; }
   
-  .foot-col.right-align { align-items: flex-end; text-align: right; max-width: 450px; }
-  
-  .foot-links-right { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px 24px; margin-bottom: 32px; }
-  .foot-links-right a { font-family: var(--font-heading); font-size: 1.15rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; color: #888; }
-  .foot-links-right a:hover { color: #fff; }
-
-  .follow-title { font-family: var(--font-heading); font-size: 1.1rem; color: #fff; margin-bottom: 12px; letter-spacing: 1px; }
-  .social-wrapper { display: flex; gap: 12px; margin-bottom: 16px; justify-content: flex-end; }
-  .foot-social-glass {
-    width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
-    display: flex; align-items: center; justify-content: center; transition: 0.3s; border-radius: 4px;
+  .foot-col .footer-logo { max-width: 160px; height: auto; margin-bottom: 32px; object-fit: contain; }
+  .foot-col small { 
+    display: block; 
+    font-size: 1.2rem; 
+    line-height: 1.8; 
+    font-weight: 400; 
+    color: #ffffff;
   }
-  .foot-social-glass:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
-  .foot-social-glass svg { stroke: #fff; width: 18px; height: 18px; }
   
-  .email-wrapper { font-size: 0.95rem; color: #ccc; }
-  .email-wrapper a { text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: flex-end; gap: 8px; transition: color 0.3s;}
-  .email-wrapper a:hover { color: #fff; }
+  .foot-col.right-align { align-items: flex-end; text-align: right; max-width: 500px; }
+  
+  .foot-links-right { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px 32px; margin-bottom: 48px; }
+  .foot-links-right a { font-family: var(--font-body); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; transition: 0.3s; color: #ffffff; } 
+  .foot-links-right a:hover { color: #cccccc; }
 
-  .copy {margin-top:60px; font-size:0.9rem; color:#444; border-top:1px solid var(--glass-border); padding-top:24px; text-align: center;}
+  .follow-title { font-family: var(--font-heading); font-size: 1.5rem; color: #ffffff; margin-bottom: 24px; letter-spacing: 2px; }
+  .social-wrapper { display: flex; gap: 16px; margin-bottom: 32px; justify-content: flex-end; }
+  .foot-social-glass {
+    width: 60px; height: 60px; 
+    background: transparent; 
+    border: 1px solid rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center; 
+    transition: all 0.3s ease; border-radius: 8px;
+  }
+  .foot-social-glass:hover { background: rgba(255,255,255,0.15); border-color: #ffffff; transform: translateY(-2px); }
+  .foot-social-glass svg { stroke: #ffffff; width: 26px; height: 26px; }
+  
+  .email-wrapper { font-size: 1.25rem; color: #ffffff; font-weight: 400; margin-top: 16px; } 
+  .email-wrapper a { text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: flex-end; gap: 12px; transition: color 0.3s;}
+  .email-wrapper a:hover { color: #cccccc; }
+  .email-wrapper svg { width: 24px; height: 24px; stroke: #ffffff; }
+
+  .copy {margin-top:100px; font-size:1.15rem; color:#ffffff; border-top:1px solid rgba(255,255,255,0.2); padding-top:32px; text-align: center;} 
 
   /* -------------------------------------
      MEDIA QUERIES (MOBILE UI FIXES)
@@ -493,18 +510,19 @@
   @media(max-width:960px){
     section, footer { padding: 80px 0; }
     
-    .about-grid, .pack-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-grid, .pack-grid { grid-template-columns: 1fr; gap: 48px; }
     .station-grid { grid-template-columns: repeat(2, 1fr); }
-    .prep-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    .partner-row-4-center { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+    .prep-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
     
-    .foot { flex-direction: column; gap: 40px; }
+    .partner-row-3-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+    
+    .foot { flex-direction: column; gap: 48px; }
     .foot-col.right-align { align-items: flex-start; text-align: left; max-width: 100%; }
-    .foot-links-right { justify-content: flex-start; margin-bottom: 24px; }
+    .foot-links-right { justify-content: flex-start; margin-bottom: 32px; }
     .social-wrapper { justify-content: flex-start; }
     .email-wrapper a { justify-content: flex-start; }
     
-    .slider-btn { width: 44px; height: 44px; font-size: 1rem; }
+    .slider-btn { width: 48px; height: 48px; font-size: 1.2rem; }
     .slider-btn.prev { left: 16px; }
     .slider-btn.next { right: 16px; }
     
@@ -517,50 +535,54 @@
       border-bottom: 1px solid var(--glass-border); gap: 24px;
     }
     .nav .btn.desk { display: none; }
+
+    .hero-content-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+    .hero-left-content { align-items: center; margin: 0 auto; }
+    .hero-cta { justify-content: center; }
+    .tagline { align-self: center; text-align: center; }
+    .hero-right { padding-left: 0; }
+    .hero .lede { text-align: center; margin-left: auto; margin-right: auto; }
+    .facts { align-items: center; }
   }
 
   @media(max-width:560px){
     section, footer { padding: 60px 0; }
-    .hero-inner { padding-top: 80px; padding-bottom: 20px;}
+    .hero-inner { padding-top: 100px; padding-bottom: 40px;}
     
-    .hero h1 { font-size: clamp(3rem, 12vw, 4.5rem); line-height: 0.95; }
-    .presents { font-size: 1rem; }
-    .hero .kick { font-size: clamp(1.5rem, 7vw, 2rem); margin: 8px 0 16px; }
-    .hero .lede { font-size: 1rem; }
-    .hero-cta { flex-direction: column; width: 100%; gap: 12px; }
+    .hero-cta { flex-direction: column; width: 100%; gap: 16px; }
     .hero-cta .btn { width: 100%; }
-    .facts { flex-direction: column; align-items: flex-start; gap: 8px; margin: 24px 0; }
-    .fact { font-size: 0.95rem; }
-    .fact:not(:last-child)::after { display: none; }
     
-    .pillar { gap: 16px; }
+    .station-grid { grid-template-columns: 1fr; gap: 24px; }
+    .station-card { min-height: 420px; } 
+    .st-num { font-size: 1.6rem; }
+    .st-body h3 { font-size: 1.6rem; }
+    .st-label { font-size: 1.1rem; }
+    .st-vals span strong { font-size: 1.4rem; }
     
-    .station-grid { grid-template-columns: 1fr; }
-    .st-body { padding: 20px; }
-    
-    /* WHO Section Mobile Adjustments */
-    .who h2 { font-size: clamp(2rem, 8vw, 3rem); }
-    .who p { font-size: 1rem; }
+    .who h2 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+    .who p { font-size: 1.15rem; }
     .who .chips { 
-      gap: 16px 24px; align-items: center; justify-content: center; 
+      gap: 16px 20px; align-items: center; justify-content: center; 
       width: 100%; margin-top: 32px; flex-direction: row; flex-wrap: wrap; 
     }
-    .who .chip { font-size: 1rem; align-items: center; text-align: center; width: auto; }
-    .who .chip .tick { width: 28px; height: 28px; font-size: 0.9rem; }
+    .who .chip { font-size: 1.15rem; align-items: center; text-align: center; width: auto; }
     
-    .prep-grid { grid-template-columns: 1fr; gap: 32px; }
+    .prep-grid { grid-template-columns: 1fr; gap: 40px; }
     
-    .price-card { padding: 32px 24px; }
+    .price-card { padding: 40px 24px; }
     
-    .box-large { height: 90px; }
-    .box-medium { height: 80px; }
-    .box-small { height: 70px; }
+    .partner-row-3-grid { grid-template-columns: 1fr; }
     
-    .qa button { padding: 20px 8px; font-size: 1.05rem; }
+    .box-large { height: 110px; }
+    .box-medium { height: 90px; }
+    .box-small { height: 80px; }
+    
+    .qa button { padding: 24px 8px; font-size: 1.2rem; }
     
     .final { padding: 80px 0; }
+    .final p { font-size: 1.25rem; }
 
-    .foot-links-right { flex-direction: column; gap: 12px; }
+    .foot-links-right { flex-direction: column; gap: 20px; }
   }
 </style>
 </head>
@@ -579,7 +601,7 @@
       <a href="#who">คุณสมบัติผู้สมัคร</a>
       <a href="#preparation">การเตรียมตัว</a>
       <a href="#partners">พาร์ทเนอร์</a>
-      <a href="#faq">FAQ</a>
+      <a href="#faq">คำถามที่พบบ่อย</a>
     </nav>
     <a href="#register" class="btn btn-primary desk">สมัครเข้าแข่งขัน</a>
     <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
@@ -588,6 +610,7 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <!-- สไลด์พื้นหลัง -->
   <div class="hero-slider" id="heroSlider">
     <div class="slide active" style="background-image: url('Picture/Legacy\ Race\ dead\ hang\ M\ HZ.png');"></div>
     <div class="slide" style="background-image: url('Picture/Legacy\ Race\ push\ up\ M\ HZ.png');"></div>
@@ -599,22 +622,39 @@
   <div class="hero-overlay"></div>
 
   <div class="wrap hero-inner">
-    <div class="presents">ALLIANZ AYUDHYA <b>PRESENTS</b></div>
-    <h1>LEGACY RACE <span class="yr"><b>2026</b></span></h1>
-    <p class="lede">การแข่งขัน <b>Functional Fitness</b> สำหรับผู้มีอายุ <b>50–69 ปี</b> ที่จะพิสูจน์ว่าความแข็งแกร่งไม่ได้ถูกกำหนดด้วยอายุ</p>
     
-    <ul class="facts">
-      <li class="fact"><strong>วันแข่งขัน </strong> เสาร์ที่ 31 ตุลาคม 2569</li>
-      <li class="fact"><strong>สถานที่ </strong> IMPACT Exhibition Hall 5 เมืองทองธานี</li>
-      <li class="fact"><strong>ค่าสมัคร </strong> 1,800 บาท</li>
-      <li class="fact"><strong>รับจำนวนจำกัด </strong> เพียง 350 คน</li>
-    </ul>
-    
-    <div class="hero-cta">
-      <a href="#register" class="btn btn-primary">สมัครเข้าแข่งขัน</a>
-      <a href="#format" class="btn btn-ghost">ดูรายละเอียดการแข่งขัน</a>
+    <div class="hero-content-grid">
+      
+      <!-- ด้านซ้าย: โลโก้, ปุ่ม, และ Tagline -->
+      <div class="hero-left">
+        <div class="hero-left-content">
+          <img src="Picture/logowk.png" alt="LEGACY RACE - Allianz Ayudhya Presents" class="hero-logo-img">
+          
+          <div class="hero-cta">
+            <a href="#register" class="btn btn-primary">สมัครเข้าแข่งขัน</a>
+            <a href="#format" class="btn btn-ghost">ดูรายละเอียดการแข่งขัน</a>
+          </div>
+          
+          <div class="tagline">
+            <span style="color: #ffffff;">WE ARE WARRIORS.</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ด้านขวา: ข้อมูล -->
+      <div class="hero-right">
+        <p class="lede">การแข่งขัน <b>Functional Fitness</b> สำหรับผู้มีอายุ <b>50–69 ปี</b> ที่จะพิสูจน์ว่าความ<br>แข็งแกร่งไม่ได้ถูกกำหนดด้วยอายุ</p>
+        
+        <ul class="facts">
+          <li class="fact"><strong>วันแข่งขัน</strong> เสาร์ที่ 31 ตุลาคม 2569</li>
+          <li class="fact"><strong>สถานที่</strong> IMPACT Exhibition Hall 5 เมืองทองธานี</li>
+          <li class="fact"><strong>ค่าสมัคร</strong> 1,800 บาท</li>
+          <li class="fact"><strong>รับจำนวนจำกัด</strong> เพียง 350 คน</li>
+        </ul>
+      </div>
+      
     </div>
-    <div class="tagline">STRONGER TODAY. <i>LEGACY FOREVER.</i></div>
+    
   </div>
 </section>
 
@@ -625,48 +665,10 @@
     <div class="about-grid">
       <div>
         <h2>นี่ไม่ใช่การแข่งขัน<br>เพื่อ<em class="thai-h">เอาชนะคนอื่น</em></h2>
-        <p><b style="color:#fff">LEGACY Race</b> คือการแข่งขัน Functional Fitness ที่ออกแบบสำหรับผู้มีอายุ 50–69 ปี เพื่อเปิดพื้นที่ให้ทุกคนได้ท้าทายศักยภาพของตัวเอง ผ่านสถานีที่วัดทั้งความแข็งแรง ความทนทาน และการทรงตัว</p>
+        <p><b style="color:#ffffff">LEGACY Race</b> คือการแข่งขัน Functional Fitness ที่ออกแบบสำหรับผู้มีอายุ 50–69 ปี เพื่อเปิดพื้นที่ให้ทุกคนได้ท้าทายศักยภาพของตัวเอง ผ่านสถานีที่วัดทั้งความแข็งแรง ความทนทาน และการทรงตัว</p>
         <p>เราเชื่อว่าการชนะที่สำคัญที่สุด ไม่ใช่การเข้าเส้นชัยก่อนใคร แต่คือการก้าวข้ามขีดจำกัดของตัวเอง</p>
         <div class="warrior">YOU ARE NOT TOO OLD.<br><b>YOU ARE A WARRIOR.</b></div>
       </div>
-      
-      <!-- PILLARS -->
-      <div class="pillars">
-        
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <div class="pillar-content">
-            <div class="thai-h">ความแข็งแรง</div>
-            <p>ทดสอบกำลังผ่านการเคลื่อนไหวในชีวิตจริง</p>
-          </div>
-        </div>
-        
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <div class="pillar-content">
-            <div class="thai-h">ความทนทาน</div>
-            <p>วัดความอึดและหัวใจตลอดเส้นทาง</p>
-          </div>
-        </div>
-        
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <div class="pillar-content">
-            <div class="thai-h">การทรงตัว</div>
-            <p>ควบคุมร่างกายอย่างมั่นคงในทุกจังหวะ</p>
-          </div>
-        </div>
-        
-        <div class="pillar">
-          <div class="pillar-num">04</div>
-          <div class="pillar-content">
-            <div class="thai-h">ความพร้อม</div>
-            <p>พิสูจน์ว่าคุณพร้อมสำหรับความท้าทาย</p>
-          </div>
-        </div>
-        
-      </div>
-      
     </div>
   </div>
 </section>
@@ -676,7 +678,7 @@
   <div class="wrap">
     <div class="head">
       <div class="sec-label"><span></span><div class="eyebrow">รูปแบบการแข่งขัน</div><span></span></div>
-      <h2>8 STATIONS. <b>ONE LEGACY.</b></h2>
+      <h2>8 STATIONS. ONE LEGACY.</h2>
       <p>รู้ก่อนลงสนาม ว่าต้องเตรียมร่างกายแบบใด กับ 8 สถานีที่ท้าทายทุกมิติของความแข็งแกร่ง</p>
     </div>
     
@@ -685,7 +687,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/1.png');"></div>
         <div class="st-body">
-          <div class="st-num">01</div>
+          <div class="st-num">STATIONS 01</div>
           <h3>BEAR HUG WALK</h3>
           <div class="st-table">
             <div class="st-row">
@@ -707,8 +709,8 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/2.png');"></div>
         <div class="st-body">
-          <div class="st-num">02</div>
-          <h3>SLED PUSH <span style="font-size: 0.8rem; font-family: var(--font-body); text-transform: none; display: block; margin-top: 2px;">(STRAIGHT-ARMS)</span></h3>
+          <div class="st-num">STATIONS 02</div>
+          <h3>SLED PUSH <span style="font-size: 1.1rem; font-family: var(--font-body); text-transform: none; display: block; margin-top: 2px;">(STRAIGHT-ARMS)</span></h3>
           <div class="st-table">
             <div class="st-row">
               <div class="st-label">ระยะทาง</div>
@@ -729,7 +731,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/3.png');"></div>
         <div class="st-body">
-          <div class="st-num">03</div>
+          <div class="st-num">STATIONS 03</div>
           <h3>SINGLE-ARM DB OH WALK LUNGE</h3>
           <div class="st-table">
             <div class="st-row">
@@ -751,7 +753,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/4.png');"></div>
         <div class="st-body">
-          <div class="st-num">04</div>
+          <div class="st-num">STATIONS 04</div>
           <h3>SKI ERG</h3>
           <div class="st-table">
             <div class="st-row">
@@ -769,7 +771,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/5.png');"></div>
         <div class="st-body">
-          <div class="st-num">05</div>
+          <div class="st-num">STATIONS 05</div>
           <h3>HALF BURPEE SB THROW</h3>
           <div class="st-table">
             <div class="st-row">
@@ -791,7 +793,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/6.png');"></div>
         <div class="st-body">
-          <div class="st-num">06</div>
+          <div class="st-num">STATIONS 06</div>
           <h3>SLED ROW</h3>
           <div class="st-table">
             <div class="st-row">
@@ -813,7 +815,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/7.png');"></div>
         <div class="st-body">
-          <div class="st-num">07</div>
+          <div class="st-num">STATIONS 07</div>
           <h3>AIR BIKE</h3>
           <div class="st-table">
             <div class="st-row">
@@ -831,7 +833,7 @@
       <div class="station-card">
         <div class="st-pic" style="background-image: url('Picture/8.png');"></div>
         <div class="st-body">
-          <div class="st-num">08</div>
+          <div class="st-num">STATIONS 08</div>
           <h3>DEAD HANG (HOLD)</h3>
           <div class="st-table">
             <div class="st-row">
@@ -849,15 +851,14 @@
   </div>
 </section>
 
-<!-- WHO Section (White Background) -->
+<!-- WHO Section -->
 <section class="who" id="who">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center"><span></span><div class="eyebrow">คุณสมบัติผู้สมัคร</div><span></span></div>
-    <h2 class="thai-h">คุณพร้อมเป็น LEGACY Warrior หรือยัง?</h2>
-    <p>LEGACY Race เปิดรับผู้สมัครสัญชาติไทย อายุ 50–69 ปี ที่มีพื้นฐานการออกกำลังกายและมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p>
+    <h2 class="thai-h">Allianz Ayudhya Presents LEGACY RACE</h2>
+    <p>LEGACY Race เปิดรับผู้สมัครที่มีอายุ 50–69 ปี ที่มีพื้นฐานการออกกำลังกายและมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p>
     
     <div class="chips">
-      <div class="chip"><span class="tick">✓</span> สัญชาติไทย</div>
       <div class="chip"><span class="tick">✓</span> อายุ 50–69 ปี</div>
       <div class="chip"><span class="tick">✓</span> มีพื้นฐานการออกกำลังกาย</div>
       <div class="chip"><span class="tick">✓</span> พร้อมด้านสุขภาพ</div>
@@ -915,24 +916,28 @@
 <section class="pack" id="register">
   <div class="wrap">
     <div class="sec-label"><span></span><div class="eyebrow">แพ็กเกจการสมัคร</div></div>
-    <h2 style="font-size:clamp(2.5rem,4vw,3.5rem); color:#fff; margin-bottom:48px;">YOUR RACE ENTRY INCLUDES</h2>
+    <h2 style="font-size:clamp(2.8rem,5vw,4.5rem); color:#ffffff; margin-bottom:56px; line-height: 1.1;">YOUR RACE ENTRY INCLUDES</h2>
     <div class="pack-grid">
       <div class="price-card">
         <div class="eyebrow">ค่าสมัคร</div>
         <div class="amt">1,800<small> บาท</small></div>
         <div class="sub">ต่อผู้เข้าแข่งขัน 1 ท่าน</div>
         <div class="limit">รับจำนวนจำกัดเพียง 350 คน</div>
+        
         <a href="#" class="btn btn-primary">สมัครเข้าแข่งขันเลย</a>
+        
+        <div class="price-note">
+          *หมายเหตุ: ราคาดังกล่าวยังไม่รวม VAT 7%, Platform fee และค่าธรรมเนียมบัตรเครดิต (ถ้ามี) การสมัครอยู่ภายใต้เงื่อนไขและการพิจารณาคุณสมบัติของผู้จัดแข่งขัน
+        </div>
       </div>
       <div class="includes">
         <h3 class="thai-h">สิ่งที่คุณจะได้รับ</h3>
         <ul class="inc-list">
-          <li><span class="tick">✓</span>สิทธิ์เข้าแข่งขัน LEGACY Race 2026</li>
-          <li><span class="tick">✓</span>เสื้อ Official Competitor</li>
-          <li><span class="tick">✓</span>เหรียญหรือของที่ระลึกสำหรับผู้เข้าแข่งขัน</li>
+          <li><span class="tick">✓</span>สิทธิ์เข้าแข่งขัน Allianz Ayudhya Presents LEGACY RACE</li>
+          <li><span class="tick">✓</span>เสื้อ Official Competitor T-shirt แบรนด์ Yuedpao</li>
           <li><span class="tick">✓</span>ประกันอุบัติเหตุจาก Allianz Ayudhya</li>
           <li><span class="tick">✓</span>บัตรเข้าชมสำหรับผู้ติดตาม 2 ใบ</li>
-          <li><span class="tick">✓</span>Competitor Goodie Bag</li>
+          <li><span class="tick">✓</span>LEGACY Goodies Bag</li>
         </ul>
       </div>
     </div>
@@ -964,8 +969,8 @@
         </div>
       </div>
       
-      <!-- Tier 3: 4 Small Partners in a row -->
-      <div class="partner-row-4-center">
+      <!-- Tier 3: 6 Small Partners in a 3-column grid -->
+      <div class="partner-row-3-grid">
         <div class="ptier">
           <div class="tlab">OFFICIAL HEALTHCARE PARTNER</div>
           <div class="logo-box box-small">
@@ -990,6 +995,22 @@
             <img src="Picture/LOGO_7_0.png" alt="Double T">
           </div>
         </div>
+        
+        <!-- ช่องใส่ Logo ลำดับที่ 5 (Placeholder) -->
+        <div class="ptier">
+          <div class="tlab">OFFICIAL PARTNER</div>
+          <div class="logo-box box-small">
+            <img src="Picture/YOUR_LOGO_5.png" alt="Partner 5">
+          </div>
+        </div>
+        
+        <!-- ช่องใส่ Logo ลำดับที่ 6 (Placeholder) -->
+        <div class="ptier">
+          <div class="tlab">OFFICIAL PARTNER</div>
+          <div class="logo-box box-small">
+            <img src="Picture/YOUR_LOGO_6.png" alt="Partner 6">
+          </div>
+        </div>
       </div>
       
     </div>
@@ -1000,10 +1021,10 @@
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center"><span></span><div class="eyebrow">คำถามที่พบบ่อย</div><span></span></div>
-    <h2>FAQ</h2>
+    <h2>FAQs</h2>
     <div class="acc">
-      <div class="qa"><button>ใครสามารถสมัครเข้าแข่งขันได้บ้าง?<span class="plus">+</span></button><div class="ans"><p>ผู้สมัครต้องมีสัญชาติไทย อายุ 50–69 ปี มีพื้นฐานการออกกำลังกาย และมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p></div></div>
-      <div class="qa"><button>ค่าสมัครเท่าไร และครอบคลุมอะไรบ้าง?<span class="plus">+</span></button><div class="ans"><p>ค่าสมัคร 1,800 บาท ครอบคลุมสิทธิ์เข้าแข่งขัน เสื้อ Official Competitor เหรียญ/ของที่ระลึก ประกันอุบัติเหตุ บัตรเข้าชมสำหรับผู้ติดตาม 2 ใบ และ Goodie Bag</p></div></div>
+      <div class="qa"><button>ใครสามารถสมัครเข้าแข่งขันได้บ้าง?<span class="plus">+</span></button><div class="ans"><p>ผู้สมัครต้องมีอายุ 50–69 ปี มีพื้นฐานการออกกำลังกาย และมีความพร้อมด้านสุขภาพสำหรับการแข่งขัน Functional Fitness</p></div></div>
+      <div class="qa"><button>ค่าสมัครเท่าไร และครอบคลุมอะไรบ้าง?<span class="plus">+</span></button><div class="ans"><p>ค่าสมัคร 1,800 บาท ครอบคลุมสิทธิ์เข้าแข่งขัน เสื้อ Official Competitor T-shirt แบรนด์ Yuedpao ประกันอุบัติเหตุ บัตรเข้าชมสำหรับผู้ติดตาม 2 ใบ และ LEGACY Goodies Bag</p></div></div>
       <div class="qa"><button>การแข่งขันจัดที่ไหนและเมื่อไร?<span class="plus">+</span></button><div class="ans"><p>วันเสาร์ที่ 31 ตุลาคม 2569 ณ IMPACT Exhibition Hall 5 เมืองทองธานี</p></div></div>
       <div class="qa"><button>รับผู้เข้าแข่งขันจำนวนเท่าไร?<span class="plus">+</span></button><div class="ans"><p>รับจำนวนจำกัดเพียง 350 คน แนะนำให้สมัครแต่เนิ่นๆ เพื่อไม่พลาดโอกาส</p></div></div>
     </div>
@@ -1014,7 +1035,7 @@
 <section class="final">
   <div class="wrap">
     <h2>STRONGER TODAY.<br>LEGACY FOREVER.</h2>
-    <p>รับจำนวนจำกัดเพียง 350 คน — ที่นั่งของ Warrior รอคุณอยู่</p>
+    <p>รับจำนวนจำกัดเพียง 350 คน</p>
     <a href="#register" class="btn btn-primary">สมัครเข้าแข่งขัน</a>
   </div>
 </section>
@@ -1024,16 +1045,15 @@
   <div class="wrap">
     <div class="foot">
       
-      <!-- Left: Brand Info -->
+      <!-- Left: Logo & Info -->
       <div class="foot-col">
-        <div class="brand">LEGACY RACE 2026</div>
-        <small>การแข่งขัน Functional Fitness สำหรับผู้มีอายุ 50–69 ปี จัดโดยความร่วมมือกับ Allianz Ayudhya</small>
+        <img src="Picture/logowk.png" alt="LEGACY RACE 2026" class="footer-logo">
       </div>
       
       <!-- Right: Links and Follow Us -->
       <div class="foot-col right-align">
         
-        <!-- Footer Links on the Right (Above Follow Us) -->
+        <!-- Footer Links -->
         <div class="foot-links-right">
           <a href="#about">เกี่ยวกับ</a>
           <a href="#format">รูปแบบการแข่ง</a>
@@ -1043,21 +1063,23 @@
 
         <div class="follow-title">FOLLOW US</div>
         
+        <!-- Social Icons -->
         <div class="social-wrapper">
           <a href="https://www.facebook.com/profile.php?id=61591020220424" class="foot-social-glass" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           </a>
           <a href="https://lin.ee/oteMxiN" class="foot-social-glass" aria-label="LINE">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </a>
           <a href="https://www.instagram.com/lgrlegacyrace?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="foot-social-glass" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
         </div>
         
+        <!-- Email -->
         <div class="email-wrapper">
           <a href="mailto:lgrlegacyrace@gmail.com">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             lgrlegacyrace@gmail.com
           </a>
         </div>
@@ -1115,9 +1137,9 @@
 
   window.addEventListener('scroll', () => {
     if(window.scrollY > 50) {
-      header.style.background = 'rgba(0,0,0,0.85)';
+      header.style.background = 'rgba(0,0,0,0.9)';
     } else {
-      header.style.background = 'rgba(0,0,0,0.6)';
+      header.style.background = 'rgba(0,0,0,0.8)';
     }
   });
   
