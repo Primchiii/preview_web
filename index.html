@@ -532,10 +532,8 @@
     .station-grid { grid-template-columns: repeat(2, 1fr); }
     .prep-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
     
-    .partner-row-3-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-    
     .foot { flex-direction: column; gap: 48px; align-items: center; }
-    .foot-col.right-align { align-items: center; text-align: left; max-width: 100%; }
+    .foot-col.right-align { align-items: center; text-align: center; max-width: 100%; }
     .foot-links-right { justify-content: center; margin-bottom: 32px; }
     .social-wrapper { justify-content: center; }
     .email-wrapper a { justify-content: center; }
@@ -547,27 +545,76 @@
       flex-direction: column; background: rgba(0,0,0,0.95); 
       backdrop-filter: blur(24px); padding: 32px 24px; 
       border-bottom: 1px solid var(--glass-border); gap: 24px;
+      text-align: center; /* จัดเมนูบนมือถือให้อยู่ตรงกลาง */
     }
     .nav .btn.desk { display: none; }
 
-    .hero-content-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; margin-top: 0; }
+    /* จัดระเบียบ Hero สำหรับมือถือและแท็บเล็ต */
+    .hero-content-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; margin-top: 0; }
     .hero-left-content { align-items: center; margin: 0 auto; text-align: center; }
-    .tagline { text-align: center; padding-left: 0; }
-    .hero-right { padding-left: 0; transform: translateY(0); } /* รีเซ็ตให้ในมือถือไม่ต้องดันขึ้น */
-    .hero .lede { text-align: center; margin-left: auto; margin-right: auto; }
-    .facts { align-items: center; }
-    .fact { align-items: center; }
+    .hero-logo-img { max-width: 260px; margin-bottom: 30px; } /* ขนาดย่อลงพอดีจอ */
+    .tagline { text-align: center; font-size: 1.6rem; letter-spacing: 3px; }
+    .hero-right { padding-left: 0; transform: translateY(0); align-items: center; } 
+    
+    /* ซ่อน br ในมือถือและแท็บเล็ต ให้ข้อความตัดบรรทัดเอง */
+    .hero .lede br { display: none; }
+    .hero .lede { text-align: center; margin-left: auto; margin-right: auto; max-width: 400px; }
+    
+    /* จัดกลุ่มไอคอนกับข้อมูลฝั่งขวา */
+    .facts { display: flex; flex-direction: column; align-items: center; text-align: left; width: 100%; gap: 24px;}
+    .fact { align-items: flex-start; width: 100%; max-width: 320px; }
+    .fact strong { display: block; margin-bottom: 4px; } /* ดันข้อความรองลงบรรทัดใหม่ */
   }
 
   @media(max-width:560px){
     section, footer { padding: 60px 0; }
     .hero-inner { padding-top: 100px; padding-bottom: 40px;}
     
-    .hero-cta { flex-direction: column; width: 100%; gap: 16px; }
-    .hero-cta .btn { width: 100%; }
+    .hero-logo-img { max-width: 220px; margin-bottom: 24px; }
     
-    .station-grid { grid-template-columns: 1fr; gap: 24px; }
-    .station-card { min-height: 420px; } 
+    /* ปรับปุ่มให้แคบลงและอยู่กึ่งกลาง */
+    .hero-cta { flex-direction: column; align-items: center; width: 100%; gap: 12px; }
+    .hero-cta .btn { width: 85%; max-width: 280px; } 
+    
+    .tagline { font-size: 1.4rem; letter-spacing: 2px; }
+    
+    /* ปรับประโยค Functional Fitness ให้อ่านง่ายขึ้น ไม่ฉีกคำ */
+    .hero .lede { 
+      font-size: 1.15rem; 
+      line-height: 1.6; 
+      max-width: 320px; /* บังคับความกว้างให้จัดทรงประโยคสวยงาม */
+      margin: 0 auto 30px auto; 
+    }
+    
+    /* ปรับ Hero Section ข้อมูล (วัน, สถานที่, ราคา) */
+    .facts { 
+      width: 100%; 
+      align-items: center; 
+      gap: 20px; 
+    }
+    .fact { 
+      flex-direction: row; 
+      text-align: left; 
+      gap: 16px; 
+      font-size: 1.15rem; 
+      width: 100%; 
+      max-width: 300px; 
+      align-items: flex-start; /* ให้ไอคอนอยู่ชิดด้านบนบรรทัดแรก */
+    }
+    .fact svg {
+      margin-top: 4px; /* ขยับไอคอนให้ตรงกับตัวหนังสือบรรทัดแรก */
+    }
+    .fact div {
+      line-height: 1.5;
+    }
+    .fact strong { 
+      display: block; /* ผลักข้อความรองลงไปอยู่บรรทัดใหม่ */
+      font-size: 1.25rem; 
+      margin-bottom: 2px;
+    }
+    
+    .station-grid { grid-template-columns: 1fr; gap: 16px; }
+    .station-card { min-height: 340px; } /* ความสูง Compact ขึ้นในจอมือถือ */
     .st-num { font-size: 1.6rem; }
     .st-body h3 { font-size: 1.6rem; }
     .st-label { font-size: 1.1rem; }
@@ -581,15 +628,16 @@
     }
     .who .chip { font-size: 1.15rem; align-items: center; text-align: center; width: auto; }
     
-    .prep-grid { grid-template-columns: 1fr; gap: 40px; }
+    .prep-grid { grid-template-columns: 1fr; gap: 32px; }
     
-    .price-card { padding: 40px 24px; }
+    .price-card { padding: 32px 20px; border-radius: 24px; }
+    .price-card .amt { font-size: 3.5rem; }
     
-    .partner-row-3-grid { grid-template-columns: 1fr; }
-    
-    .box-large { height: 110px; }
-    .box-medium { height: 90px; }
-    .box-small { height: 80px; }
+    /* ปรับ Partners เป็น 2 คอลัมน์บนมือถือ ไม่ให้โลโก้เรียงยาวเกินไป */
+    .partner-row-3-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .box-large { height: 90px; padding: 16px; }
+    .box-medium { height: 80px; padding: 12px; }
+    .box-small { height: 70px; padding: 12px; }
     
     .qa button { padding: 24px 8px; font-size: 1.2rem; }
     
