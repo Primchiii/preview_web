@@ -362,6 +362,23 @@
   .st-vals span { display: flex; gap: 8px; justify-content: flex-end; align-items: baseline; width: 100%; color: #ffffff; font-size: 1.1rem; }
   .st-vals span strong { color: #ffffff; font-weight: normal; font-size: 1.6rem; letter-spacing: 1px; line-height: 1.1; }
 
+  /* VIDEO WRAPPER */
+  .video-wrapper {
+    max-width: 1000px;
+    margin: 80px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    background: #000;
+  }
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    background: #000;
+  }
+
   /* =========================================
      WHO Section
      ========================================= */
@@ -613,6 +630,8 @@
     .facts { display: flex; flex-direction: column; align-items: center; text-align: left; width: 100%; gap: 24px;}
     .fact { align-items: flex-start; width: 100%; max-width: 320px; }
     .fact strong { display: block; margin-bottom: 4px; } /* ดันข้อความรองลงบรรทัดใหม่ */
+
+    .video-wrapper { margin-top: 56px; }
   }
 
   @media(max-width:560px){
@@ -719,6 +738,8 @@
     .final p { font-size: 1.25rem; }
 
     .foot-links-right { flex-direction: column; gap: 20px; align-items: center;}
+
+    .video-wrapper { margin-top: 40px; border-radius: 12px; }
   }
 </style>
 </head>
@@ -997,6 +1018,15 @@
       </div>
 
     </div>
+    
+    <!-- เพิ่มส่วน Video 16:9 ด้านล่าง 8 Stations -->
+    <div class="video-wrapper">
+      <video controls playsinline>
+        <source src="Picture/8 ฐาน LGR.mp4" type="video/mp4">
+        เบราว์เซอร์ของคุณไม่รองรับการแสดงผลวิดีโอนี้
+      </video>
+    </div>
+
   </div>
 </section>
 
@@ -1089,7 +1119,7 @@
           <li><span class="tick">✓</span>LEGACY Goodies Bag</li>
         </ul>
       </div>
-    </div>
+      </div>
   </div>
 </section>
 
