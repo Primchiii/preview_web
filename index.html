@@ -362,9 +362,11 @@
   .st-vals span { display: flex; gap: 8px; justify-content: flex-end; align-items: baseline; width: 100%; color: #ffffff; font-size: 1.1rem; }
   .st-vals span strong { color: #ffffff; font-weight: normal; font-size: 1.6rem; letter-spacing: 1px; line-height: 1.1; }
 
-  /* VIDEO WRAPPER */
+ /* VIDEO WRAPPER (แนวตั้ง 9:16 ปรับให้พอดีระดับสายตา) */
   .video-wrapper {
-    max-width: 1000px;
+    height: 70vh; /* กำหนดความสูงไม่เกิน 70% ของหน้าจอที่เปิดดู */
+    max-height: 650px; /* บังคับไม่ให้สูงเกิน 650px บนจอคอมพิวเตอร์ใหญ่ๆ */
+    aspect-ratio: 9 / 16; /* รักษาสัดส่วนวิดีโอแนวตั้ง */
     margin: 80px auto 0;
     border-radius: 16px;
     overflow: hidden;
@@ -1019,12 +1021,15 @@
 
     </div>
     
-    <!-- เพิ่มส่วน Video 16:9 ด้านล่าง 8 Stations -->
+  <!-- เพิ่มส่วน Video YouTube แนวตั้ง 9:16 ด้านล่าง 8 Stations -->
     <div class="video-wrapper">
-      <video controls playsinline>
-        <source src="Picture/8 ฐาน LGR.mp4" type="video/mp4">
-        เบราว์เซอร์ของคุณไม่รองรับการแสดงผลวิดีโอนี้
-      </video>
+      <iframe 
+        style="width: 100%; height: 100%; display: block; border: none; background: #000;" 
+        src="https://www.youtube.com/embed/cVugWF3dE1c" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
     </div>
 
   </div>
